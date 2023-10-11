@@ -57,10 +57,27 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.custom-button {
+  background-color: #550091; /* Button background color */
+  border: none; /* Remove button border */
+  border-radius: 5%;
+  color: white; /* Button text color */
+  padding: 20px 40px; /* Adjust padding to increase/decrease button size */
+  text-align: center; /* Center text within the button */
+  text-decoration: none; /* Remove text underline */
+  display: inline-block; /* Make button a block element */
+  font-size: 30px; /* Button text font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  margin-top: 100px;
+  margin-left: 780px;
+}
+
+
 section#home {
   height: 100vh;
   background-image: url('images/bg.png'); /* Replace 'your-image-url.jpg' with the URL of your background image */
-    background-position: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
