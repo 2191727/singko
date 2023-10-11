@@ -4,14 +4,14 @@
   box-sizing: border-box;
   
 }
-/* Rectangle 3 */
+/* Rectangle 3 
 
 position: absolute;
 width: 1472px;
 height: 923px;
 left: -20px;
 top: 104px;
-
+*/
 html {
   font-size: 62.5%;
 }
@@ -21,7 +21,7 @@ html {
 header {
   position: fixed;
   width: 100%;
-  background-color: #2E0B2D;
+  background-color: rgba(0, 0, 0, 0);
   padding: 3rem 5rem;
 }
 nav {
@@ -29,6 +29,7 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -48,6 +49,12 @@ nav ul a {
 }
 nav ul a:hover {
   border-bottom: 2px solid #ffffff;
+}
+
+body{
+  background-image: url('bg.PNG');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 section#home {
   height: 100vh;
