@@ -69,8 +69,9 @@ body{
   display: inline-block; /* Make button a block element */
   font-size: 30px; /* Button text font size */
   cursor: pointer; /* Add a pointer cursor on hover */
-  margin-top: 100px;
-  margin-left: 780px;
+  position: absolute;
+  top: 600px;
+  left: 780px;
 }
 
 
