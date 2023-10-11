@@ -1,40 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #59227F;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    
+        .navbar {
+            background-color: #59227F;
+            display: flex;
+            justify-content: center; /* Center the navigation horizontally */
+            align-items: center;
+            padding: 1rem;
+        }
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <i class="fas fa-bars" id="ham-menu"></i>
-        <ul id="nav-bar">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#services">Book</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        .navbar a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-    <section id="about">
-      <a href="#about" id="logo">
-        <img src="bg3.png" alt="logo">
-      </a>
-    </section>
-    
-  </body>
+        .navbar a:hover {
+            background-color: #770077;
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .section {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .left {
+            justify-content: flex-end;
+        }
+
+        .right {
+            justify-content: flex-start;
+        }
+
+        .image {
+            width: 200%;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* Add this rule to make the text white */
+        .section div {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="content">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="section left">
+        <div class="image">
+            <img src="mf2.jpg" alt="Image 1">
+        </div>
+        <div>
+            <h2>Details 1</h2>
+            <p>Singko aims to enhance your music festival experience and make your ticket reservation convenient. We believe that every festival-goer deserves a seamless, stress-free way to secure their spot at these electrifying events.</p>
+        </div>
+    </div>
+
+    <div class="section right">
+        <div>
+            <h2>Details 2</h2>
+            <p>Join us in the celebration of music, culture, and unforgettable moments. Whether you're a seasoned festival-goer or a first-timer, Singko is here to ensure that you don't miss a beat. Reserve your spot today and let the music take you on a journey like no other!</p>
+        </div>
+        <div class="image">
+            <img src="mf3.jpeg" alt="Image 2">
+        </div>
+    </div>
+</body>
 </html>
