@@ -25,9 +25,10 @@ header {
   padding: 3rem 5rem;
 }
 nav {
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 nav ul {
@@ -52,7 +53,7 @@ nav ul a:hover {
 }
 
 body{
-  background-image: url('bg.PNG');
+  background-image: url('bgg.PNG');
   background-size: cover;
   background-repeat: no-repeat;
 }
