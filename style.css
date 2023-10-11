@@ -59,16 +59,16 @@ body{
 }
 
 .custom-button {
-  background-color: #550091; /* Button background color */
-  border: none; /* Remove button border */
+  background-color: #550091; 
+  border: none; 
   border-radius: 5%;
-  color: white; /* Button text color */
-  padding: 20px 40px; /* Adjust padding to increase/decrease button size */
-  text-align: center; /* Center text within the button */
-  text-decoration: none; /* Remove text underline */
-  display: inline-block; /* Make button a block element */
-  font-size: 30px; /* Button text font size */
-  cursor: pointer; /* Add a pointer cursor on hover */
+  color: white; 
+  padding: 20px 40px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 30px; 
+  cursor: pointer; 
   position: absolute;
   top: 600px;
   left: 780px;
