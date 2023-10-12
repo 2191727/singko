@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tickets>
+    <ticket>
+        <ticketId>801</ticketId>
+        <ticketType>UBC Sides</ticketType>
+        <ticketPrice>₱2500.00</ticketPrice>
+        <ticketQty>1000</ticketQty>
+        <!-- <ticketStartDate>2023-06-01</ticketStartDate>
+        <ticketEndDate>2023-07-15</ticketEndDate>
+        <ticketDesc>Access to all performances and activities.</ticketDesc>
+        <ticketRestrictions>None</ticketRestrictions> -->
+    </ticket>
+    <ticket>
+        <ticketId>802</ticketId>
+        <ticketType>UBB Sides</ticketType>
+        <ticketPrice>₱3000.00</ticketPrice>
+        <ticketQty>1250</ticketQty>
+    </ticket>
+    <ticket>
+        <ticketId>803</ticketId>
+        <ticketType>UBD</ticketType>
+        <ticketPrice>₱4000.00</ticketPrice>
+        <ticketQty>2500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>804</ticketId>
+        <ticketType>UBC</ticketType>
+        <ticketPrice>₱5000.00</ticketPrice>
+        <ticketQty>2500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>805</ticketId>
+        <ticketType>UBB</ticketType>
+        <ticketPrice>₱6500.00</ticketPrice>
+        <ticketQty>1800</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>806</ticketId>
+        <ticketType>UBA Regular</ticketType>
+        <ticketPrice>₱8500.00</ticketPrice>
+        <ticketQty>800</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>807</ticketId>
+        <ticketType>UBA Premium</ticketType>
+        <ticketPrice>₱10000.00</ticketPrice>
+        <ticketQty>800</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>808</ticketId>
+        <ticketType>LBB Regular 2</ticketType>
+        <ticketPrice>₱11000.00</ticketPrice>
+        <ticketQty>1200</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>809</ticketId>
+        <ticketType>LBB Regular 1</ticketType>
+        <ticketPrice>₱13000.00</ticketPrice>
+        <ticketQty>1200</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>810</ticketId>
+        <ticketType>LBB Premium</ticketType>
+        <ticketPrice>₱15500.00</ticketPrice>
+        <ticketQty>1500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>811</ticketId>
+        <ticketType>LBA Regular 2</ticketType>
+        <ticketPrice>₱17000.00</ticketPrice>
+        <ticketQty>1500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>812</ticketId>
+        <ticketType>LBA Regular 1</ticketType>
+        <ticketPrice>₱20000.00</ticketPrice>
+        <ticketQty>1000</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>813</ticketId>
+        <ticketType>LBA Premium 2</ticketType>
+        <ticketPrice>₱21000.00</ticketPrice>
+        <ticketQty>500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>814</ticketId>
+        <ticketType>LBA Premium 1</ticketType>
+        <ticketPrice>₱22000.00</ticketPrice>
+        <ticketQty>500</ticketQty>
+    </ticket>
+        <ticket>
+        <ticketId>815</ticketId>
+        <ticketType>Floor Standing</ticketType>
+        <ticketPrice>₱11000.00</ticketPrice>
+        <ticketQty>1000</ticketQty>
+    </ticket>
+</tickets>
