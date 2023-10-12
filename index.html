@@ -2,69 +2,70 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Singko</title>
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="Style/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Singko</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="Style/style.css" />
 </head>
 
 <body>
-  <div class="homepage">
-    <header>
-      <!-- ======= Navigation and Button ======= -->
-      <nav class="navbar">
-        <ul class="all-links">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="booking.html">Book</a></li>
-
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="content">
-      <h1>SINGKO</h1>
-      <p>Reserve your seat in the heart of the music</p>
-      <button class="custom-button">Reserve Now</button>
-    </div>
-  </div>
-
-  <!-- ======= About Us ======= -->
-  <div id="about">
-    <h1>About Us</h1>
-    <div class="about-content-left">
-      <div class="about-imgs">
-        <img src="Images/mf2.jpg" alt="Image 1">
-      </div>
-      <div>
-        <p>Singko aims to enhance your music festival experience and make your ticket reservation convenient. We believe
-          that every festival-goer deserves a seamless, stress-free way to secure their spot at these electrifying
-          events.
-        </p>
-      </div>
+    <div class="homepage">
+        <header>
+            <!-- ======= Navigation and Button ======= -->
+            <nav class="navbar">
+                <ul class="all-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            <h1>SINGKO</h1>
+            <p>Reserve your seat in the heart of the music</p>
+            <button class="custom-button">Reserve Now</button>
+        </div>
     </div>
 
-    <div class="about-content-right">
-      <div>
-        <p>Join us in the celebration of music, culture, and unforgettable moments. Whether you're a seasoned
-          festival-goer or a first-timer, Singko is here to ensure that you don't miss a beat. Reserve your spot today
-          and let the music take you on a journey like no other!</p>
-      </div>
-      <div class="about-imgs">
-        <img src="Images/mf3.jpeg" alt="Image 2">
-      </div>
+    <!-- ======= About Us ======= -->
+    <div id="about">
+        <h1>About Us</h1>
+        <div class="about-content-left">
+            <div class="about-imgs">
+                <img src="Images/mf2.jpg" alt="Image 1">
+            </div>
+            <div>
+                <p>
+                    Singko aims to enhance your music festival experience and make your ticket reservation convenient. We believe
+                    that every festival-goer deserves a seamless, stress-free way to secure their spot at these electrifying
+                    events.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-content-right">
+            <div>
+                <p>
+                    Join us in the celebration of music, culture, and unforgettable moments. Whether you're a seasoned
+                    festival-goer or a first-timer, Singko is here to ensure that you don't miss a beat. Reserve your spot today
+                    and let the music take you on a journey like no other!
+                </p>
+            </div>
+            <div class="about-imgs">
+                <img src="Images/mf3.jpeg" alt="Image 2">
+            </div>
+        </div>
     </div>
-  </div>
 
+    <!-- Script -->
+    <script>
+        var button = document.querySelector(".custom-button");
 
-  <!-- Script -->
-  <script src="script.js">
-    var button = document.getElementsByClassName("custom-button");
-
-    button.addEventListener("click", function () {
-      window.location.href = "Insert HTML BOOK";
-    });
-  </script>
+        button.addEventListener("click", function () {
+            window.location.href = "booking.html";
+        });
+    </script>
 
 </body>
 
