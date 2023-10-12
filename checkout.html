@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href=".//Style/style.css" />
+    <style>
+        body {
+            font-family: Orbitron;
+            background-color: #FFFFFF;
+            background-size: cover; /* Adjust as needed: cover, contain, auto, etc. */
+            background-repeat: no-repeat; /* Set to 'repeat' if needed */
+            background-image: url('images/mf1.jpeg'); /* Replace 'your-image-url.jpg' with your image URL */
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            color: aliceblue;
+        }
+
+        header {
+            background-image: url('images/mf1.jpeg'); /* Replace 'your-image-url.jpg' with your image URL */
+            background-size: cover; /* Adjust as needed: cover, contain, auto, etc. */
+            background-repeat: no-repeat; /* Set to 'repeat' if needed */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+
+        #ham-menu {
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #home {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        #logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+            #logo img {
+                max-width: 100%;
+            }
+
+        .container {
+            background: url('your-image-url.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(48, 13, 47, 0.7); /* Darker transparency */
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px; /* Increase the width */
+            margin: 0 auto; /* Center the container horizontally */
+            text-align: center; /* Center the content inside the container */
+        }
+
+            .container h1{
+                text-align: center;
+                color: aliceblue;
+            }
+            .container h4{
+                text-align: left;
+                color: aliceblue;
+            }
+
+            .container form {
+                text-align: left;
+                color: white;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                color: white; /* Label text color */
+                font-family: Orbitron, sans-serif; /* Font family Orbitron */
+            }
+
+            .form-group input {
+                width: 95%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                color: #000; /* Input text color */
+            }
+
+            .form-group button {
+                width: 100%;
+                padding: 10px;
+                background: #060606;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <i class="fas fa-bars" id="ham-menu"></i>
+            <ul class="all-links">
+                <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <a href="#home" id="logo">
+            <img src="bg3.png" alt="logo">
+        </a>
+    </section>
+    <div class="checkout">
+        <div class="rectangle"></div>
+          <div class="rectangle"></div>
+          <div class="rectangle-2"></div>
+          <div class="form-group">
+            <button class = "proceed" type="submit">Proceed</button>
+          </div>
+        <div class="order-summary">ORDER SUMMARY</div>
+          <div class="event-name">Singko Music Festival</div>
+          <div class="text-wrapper-7">Jan, 20, 2024</div>
+          <div class="rectangle-4"></div>
+          <div class="rectangle-5"></div>
+          <div class="rectangle-6"></div>
+          <div class="payment-method">Choose Payment Method:</div>
+         
+        </body>
+</html>
+        
