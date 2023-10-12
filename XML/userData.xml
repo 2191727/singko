@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <userId>12345</userId>
+        <userName>
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+        </userName>
+        <userAge>27</userAge>
+        <userSex>Male</userSex>
+        <userEmail>john.doe@example.com</userEmail>
+        <userPhone>+63 923 456 7890</userPhone>
+        <userAddress>
+            <street>456 Pine Street</street>
+            <city>Manila</city>
+            <state>NCR</state>
+            <postalCode>1006</postalCode>
+            <country>Philippines</country>
+        </userAddress>
+    </user>
+    <user>
+        <userId>67890</userId>
+        <userName>
+            <firstName>Jane</firstName>
+            <lastName>Smith</lastName>
+        </userName>
+        <userAge>24</userAge>
+        <userSex>Female</userSex>
+        <userEmail>jane.smith@example.com</userEmail>
+        <userPhone>+63 987 654 3210</userPhone>
+        <userAddress>
+            <street>789 Palm Avenue</street>
+            <city>Cebu City</city>
+            <state>Cebu</state>
+            <postalCode>6000</postalCode>
+            <country>Philippines</country>
+        </userAddress>
+    </user>
+</users>
