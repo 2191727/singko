@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href=".//Style/style.css" />
     <style>
         body {
             font-family: Orbitron;
@@ -30,33 +30,12 @@
             z-index: 1;
         }
 
-        nav {
-            display: flex;
-            justify-content: center; /* Center the navigation horizontally */
-            align-items: center;
-            padding: 1rem;
-        }
 
         #ham-menu {
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
         }
-
-        #nav-bar {
-            list-style: none;
-            padding: 0;
-            display: flex;
-        }
-
-            #nav-bar li {
-                margin: 0 1rem;
-            }
-
-            #nav-bar a {
-                text-decoration: none;
-                color: white;
-            }
 
         #home {
             padding: 5rem 0;
@@ -126,9 +105,8 @@
 </head>
 <body>
     <header>
-        <nav>
-            <i class="fas fa-bars" id="ham-menu"></i>
-            <ul id="nav-bar">
+        <nav class="navbar">
+            <ul class="all-links">
                 <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="booking.html">Book</a></li>
