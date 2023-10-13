@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <link rel="stylesheet" href=".//Style/style.css" />
+    <title>Offline Data Processing</title>
+    <link rel="stylesheet" href="./Style/style.css" />
+
     <style>
         body {
             font-family: Orbitron;
             background-color: #FFFFFF;
             background-size: cover;
-            /* Adjust as needed: cover, contain, auto, etc. */
             background-repeat: no-repeat;
-            /* Set to 'repeat' if needed */
             background-image: url('images/mf1.jpeg');
-            /* Replace 'your-image-url.jpg' with your image URL */
             margin: 0;
             padding: 0;
         }
@@ -25,18 +22,14 @@
 
         header {
             background-image: url('images/mf1.jpeg');
-            /* Replace 'your-image-url.jpg' with your image URL */
             background-size: cover;
-            /* Adjust as needed: cover, contain, auto, etc. */
             background-repeat: no-repeat;
-            /* Set to 'repeat' if needed */
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1;
         }
-
 
         #ham-menu {
             color: white;
@@ -55,68 +48,78 @@
             right: 0;
         }
 
-        #logo img {
-            max-width: 100%;
-        }
+            #logo img {
+                max-width: 100%;
+            }
 
         .container {
-            background: url('your-image-url.jpg') no-repeat center center fixed;
+            background: url('images/mf1.jpeg') no-repeat center center fixed;
             background-size: cover;
             background-color: rgba(48, 13, 47, 0.7);
-            /* Darker transparency */
             padding: 20px;
             border-radius: 10px;
             width: 400px;
-            /* Increase the width */
             margin: 0 auto;
-            /* Center the container horizontally */
             text-align: center;
-            /* Center the content inside the container */
         }
 
-        .container h2 {
-            text-align: center;
-            color: aliceblue;
-        }
+            .container h2 {
+                text-align: center;
+                color: aliceblue;
+            }
 
-        .container form {
-            text-align: left;
-            color: white;
-        }
+            .container form {
+                text-align: left;
+                color: white;
+            }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            color: white;
-            /* Label text color */
-            font-family: Orbitron, sans-serif;
-            /* Font family Orbitron */
+            .form-group label {
+                display: block;
+                color: white;
+                font-family: Orbitron, sans-serif;
+            }
+
+            .form-group input {
+                width: 95%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                color: #000;
+            }
+
+            .form-group button {
+                width: 100%;
+                padding: 10px;
+                background: #060606;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+        .summary {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: 20px auto;
+            text-align: center;
         }
 
-        .form-group input {
-            width: 95%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #000;
-            /* Input text color */
-        }
-
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background: #060606;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .detailed {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: 20px auto;
+            text-align: center;
         }
     </style>
 </head>
-
 <body>
     <header>
         <nav class="navbar">
@@ -139,7 +142,7 @@
     <div class="container">
         <h2>PERSONAL DETAILS</h2>
         <p>Kindly complete the following information before proceeding to the reservation page.</p>
-        <form>
+        <form id="data-form">
             <div class="form-group">
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" required>
@@ -167,7 +170,6 @@
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
             </div>
-            <br>
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
@@ -176,16 +178,105 @@
                 <button type="submit">Proceed</button>
             </div>
         </form>
+
+        <!-- Add a button to proceed to ticket prices -->
+        <div class="form-group">
+            <button type="button" id="proceed-to-tickets" disabled>Proceed to Ticket Prices</button>
+        </div>
     </div>
 
-    <!-- Script -->
-    <script>
-        var button = document.querySelector(".proceed");
+    <div class="summary">
+        <h2>Summary</h2>
+        <div id="summary"></div>
+    </div>
 
-        button.addEventListener("click", function () {
-            window.location.href = "prices.html";
+    <div class="detailed">
+        <h2>Detailed Information</h2>
+        <div id="detailed"></div>
+    </div>
+
+    <script>
+        // Disable the "Proceed to Ticket Prices" button by default
+        document.getElementById('proceed-to-tickets').disabled = true;
+
+        document.getElementById('data-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Collect form data
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const age = document.getElementById('age').value;
+            const sex = document.querySelector('input[name="sex"]:checked');
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            if (!firstName || !lastName || !age || !sex || !address || !phone || !email) {
+                alert('Please complete the entire form before proceeding.');
+                return; // Do not proceed if the form is incomplete
+            }
+
+            // Perform offline processing
+            const data = {
+                firstName,
+                lastName,
+                age,
+                sex: sex.value,
+                address,
+                phone,
+                email,
+            };
+
+            // Save data in local storage
+            localStorage.setItem('formData', JSON.stringify(data));
+
+            // Update summary and detailed information
+            updateSummary(data);
+            updateDetailed(data);
+
+            // Enable the "Proceed to Ticket Prices" button
+            document.getElementById('proceed-to-tickets').disabled = false;
+
+            // Clear the form
+            document.getElementById('data-form').reset();
         });
+
+        // Function to update summary information
+        function updateSummary(data) {
+            const summaryDiv = document.getElementById('summary');
+            summaryDiv.innerHTML = `
+                        <p><strong>First Name:</strong> ${data.firstName}</p>
+                        <p><strong>Last Name:</strong> ${data.lastName}</p>
+                        <p><strong>Age:</strong> ${data.age}</p>
+                    `;
+        }
+
+        // Function to update detailed information
+        function updateDetailed(data) {
+            const detailedDiv = document.getElementById('detailed');
+            detailedDiv.innerHTML = `<h3>Detailed Information</h3>`;
+            detailedDiv.innerHTML += `
+                        <p><strong>First Name:</strong> ${data.firstName}</p>
+                        <p><strong>Last Name:</strong> ${data.lastName}</p>
+                        <p><strong>Age:</strong> ${data.age}</p>
+                        <p><strong>Sex:</strong> ${data.sex}</p>
+                        <p><strong>Address:</strong> ${data.address}</p>
+                        <p><strong>Phone:</strong> ${data.phone}</p>
+                        <p><strong>Email:</strong> ${data.email}</p>
+                    `;
+        }
+
+        // Add event listener for the "Proceed to Ticket Prices" button
+        document.getElementById('proceed-to-tickets').addEventListener('click', function () {
+            // Navigate to the "ticket_prices.html" page
+            window.location.href = 'prices.html';
+        });
+
+        // After collecting user data and before updating the summary
+        // Add data to the storage
+        const bookingData = JSON.parse(localStorage.getItem('bookingData')) || [];
+        bookingData.push({ ticketType: data.ticketType, sex: data.sex });
+        localStorage.setItem('bookingData', JSON.stringify(bookingData));
     </script>
 </body>
-
 </html>

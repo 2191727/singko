@@ -30,44 +30,91 @@
         <div class="hd-pr">
             <h2>Location and Price</h2>
         </div>
-
         <div class="tickets">
-            <div class="tick1">2-DAY Star Wanderer (VIP) - PHP 13,000.00
+            <div class="tick1">
+                <span id="ticketType1">2-DAY Star Wanderer (VIP)</span> - <span id="ticketPrice1">PHP 13,000.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
                 <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
-            <div class="tick2">2-DAY Regular Wanderer - PHP 7,000.00
+            <div class="tick2">
+                <span id="ticketType2">2-DAY Regular Wanderer</span> - <span id="ticketPrice2">PHP 7,000.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                <span class "up" onClick='increaseCount(event, this)'>+</span>
             </div>
-            <div class="tick3">2-DAY Early Entry - PHP 6,000.00
+            <div class="tick3">
+                <span id="ticketType3">2-DAY Early Entry</span> - <span id="ticketPrice3">PHP 6,000.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                <span class "up" onClick='increaseCount(event, this)'>+</span>
             </div>
-            <div class="tick4">DAY 1 - Regular Wanderer - PHP 5,400.00
+            <div class="tick4">
+                <span id="ticketType4">DAY 1 - Regular Wanderer</span> - <span id="ticketPrice4">PHP 5,400.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                <span class "up" onClick='increaseCount(event, this)'>+</span>
             </div>
-            <div class="tick5">DAY 2 - Regular Wanderer - PHP 5.400.00
+            <div class="tick5">
+                <span id="ticketType5">DAY 2 - Regular Wanderer</span> - <span id="ticketPrice5">PHP 5,400.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                <span class "up" onClick='increaseCount(event, this)'>+</span>
             </div>
         </div>
-        <button class="proceed" type="submit">Proceed</button>
+        <button class="proceed" type="button" onclick="showSummary()">Calculate Order Summary</button>
+        <div id="totalCost">Total Cost: PHP 0.00</div>
     </div>
 
-    <!---SCRIPT-->
+    <!-- Summary Container -->
+    <div id="summary" style="display: none;">
+        <h2>Order Summary</h2>
+        <div id="summaryContent"></div>
+    </div>
+
+    <!-- Button to Proceed to Payment Details -->
+    <button class="proceed-to-payment" type="button" onclick="proceedToPayment()">Proceed to Payment Details</button>
+
+    <!-- SCRIPT -->
     <script>
         var button = document.querySelector(".proceed");
+        var plusButtons = document.querySelectorAll('.up');
 
         button.addEventListener("click", function () {
-            window.location.href = "checkout.html";
+            showSummary();
+            // window.location.href = "checkout.html"; // Comment this line to test without redirect
         });
+
+        function showSummary() {
+            var ticketTypes = [
+                "2-DAY Star Wanderer (VIP)",
+                "2-DAY Regular Wanderer",
+                "2-DAY Early Entry",
+                "DAY 1 - Regular Wanderer",
+                "DAY 2 - Regular Wanderer"
+            ];
+
+            var ticketPrices = [13000, 7000, 6000, 5400, 5400];
+            var ticketQuantities = document.querySelectorAll(".tickets input");
+            var totalCost = 0;
+            var summaryContent = "";
+
+            for (var i = 0; i < ticketQuantities.length; i++) {
+                var quantity = parseInt(ticketQuantities[i].value, 10);
+                totalCost += quantity * ticketPrices[i];
+
+                if (quantity > 0) {
+                    summaryContent += `${quantity} x ${ticketTypes[i]} - PHP ${(quantity * ticketPrices[i]).toFixed(2)}<br>`;
+                }
+            }
+
+            document.getElementById("summaryContent").innerHTML = summaryContent;
+            document.getElementById("totalCost").textContent = "Total Cost: PHP " + totalCost.toFixed(2);
+
+            // Show the summary container
+            var summaryContainer = document.getElementById("summary");
+            summaryContainer.style.display = "block";
+        }
 
         function increaseCount(a, b) {
             var input = b.previousElementSibling;
@@ -75,6 +122,7 @@
             value = isNaN(value) ? 0 : value;
             value++;
             input.value = value;
+            updateTotalCost();
         }
 
         function decreaseCount(a, b) {
@@ -84,10 +132,18 @@
                 value = isNaN(value) ? 0 : value;
                 value--;
                 input.value = value;
+                updateTotalCost();
             }
         }
-    </script>
 
+        function proceedToPayment() {
+            window.location.href = "checkout.html";
+        }
+
+        function updateTotalCost() {
+            // Code to update the total cost here
+        }
+    </script>
 </body>
 
 </html>
