@@ -21,10 +21,6 @@
 	src: url(../Resources/ArchivoBlack.otf);
 }
 @font-face{
-	font-family: arc-blk;
-	src: url(../Resources/ArchivoBlack.otf);
-}
-@font-face{
 	font-family: orb-blk;
 	src: url(../Resources/orbitron-black.otf);
 }
@@ -286,6 +282,151 @@ header{
 		background: rgba(0, 0, 0, 0.5);
 		padding: 10px;
 	}
+
+/* -----      Ticket Prices      -----*/
+#tick-pr {
+	position: absolute;
+	width: 1000px;
+	height: 550px;
+	top: 146px;
+	left: 455px;
+	background-color: #300d2fc4;
+	border-radius: 34px;
+	border: 0px none;
+	box-shadow: 0px 4px 4px #00000040;
+	align-items: center;
+	text-align: center;
+}
+#tick-pr h1{
+	font-family: orb-blk;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+#tick-pr .hd-pr{
+	font-family: orb-blk;
+	color: white;
+	padding-top: 20px;
+	text-align: left;
+	padding-left: 40px;
+}
+#tick-pr .tick1 {
+	position: absolute;
+	width: 650px;
+	height: 50px;
+	background-color: #d9d9d994;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px #00000040;
+	margin-left: 20px;
+	margin-top: 20px;
+	text-align: left;
+	padding: 15px;
+	font-family: arc-blk;
+}
+#tick-pr .tick2 {
+	position: absolute;
+	width: 650px;
+	height: 50px;
+	background-color: #d9d9d994;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px #00000040;
+	margin-left: 20px;
+	margin-top: 80px;
+	text-align: left;
+	padding: 15px;
+	font-family: arc-blk;
+}
+#tick-pr .tick3 {
+	position: absolute;
+	width: 650px;
+	height: 50px;
+	background-color: #d9d9d994;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px #00000040;
+	margin-left: 20px;
+	margin-top: 140px;
+	text-align: left;
+	padding: 15px;
+	font-family: arc-blk;
+}
+#tick-pr .tick4 {
+	position: absolute;
+	width: 650px;
+	height: 50px;
+	background-color: #d9d9d994;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px #00000040;
+	margin-left: 20px;
+	margin-top: 200px;
+	text-align: left;
+	padding: 15px;
+	font-family: arc-blk;
+}
+#tick-pr .tick5 {
+	position: absolute;
+	width: 650px;
+	height: 50px;
+	background-color: #d9d9d994;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px #00000040;
+	margin-left: 20px;
+	margin-top: 260px;
+	text-align: left;
+	padding: 15px;
+	font-family: arc-blk;
+}
+.counter {
+    width: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	cursor: pointer;
+}
+.counter input {
+    width: 50px;
+    border: 0;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: #0052cc;
+    color: #fff;
+    appearance: none;
+    outline: 0;
+	cursor: pointer;
+}
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #0052cc;
+    user-select: none;
+	cursor: pointer;
+}
+#tick-pr .proceed {
+	background-color: #550091; 
+	font-family: arc-blk;
+	font-size: 14px;
+	border: none; 
+	border-radius: 15px;
+	align-items: center;
+	color: white; 
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-decoration: none; 
+	display: inline-block; 
+	cursor: pointer; 
+	margin-top: 36%;
+}
+#tick-pr .proceed :hover{
+	background-color: rgb(120, 79, 170);
+	transition: all ease 0.3s;
+  }
+
+
 /* -----      Checkout      -----*/
 
 .checkout .order-summary {

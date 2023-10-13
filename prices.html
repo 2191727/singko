@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Singko Ticket Prices</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="Style/style.css" />
+</head>
+
+<body>
+    <div class="homepage">
+        <header>
+            <!-- ======= Navigation and Button ======= -->
+            <nav class="navbar">
+                <ul class="all-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#index.html#about">About</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="#index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!-- ======= Ticket Prices ======= -->
+    <div id="tick-pr">
+        <h1>Ticket Prices</h1>
+
+        <div class="hd-pr">
+            <h2>Location and Price</h2>
+        </div>
+
+        <div class="tickets">
+            <div class="tick1">2-DAY Star Wanderer (VIP) - PHP 13,000.00
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="0">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+            <div class="tick2">2-DAY Regular Wanderer - PHP 7,000.00
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="0">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+            <div class="tick3">2-DAY Early Entry - PHP 6,000.00
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="0">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+            <div class="tick4">DAY 1 - Regular Wanderer - PHP 5,400.00
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="0">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+            <div class="tick5">DAY 2 - Regular Wanderer - PHP 5.400.00
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="0">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+        </div>
+        <button class="proceed" type="submit">Proceed</button>
+    </div>
+
+    <!---SCRIPT-->
+    <script>
+        var button = document.querySelector(".proceed");
+
+        button.addEventListener("click", function () {
+            window.location.href = "checkout.html";
+        });
+
+        function increaseCount(a, b) {
+            var input = b.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+        }
+
+        function decreaseCount(a, b) {
+            var input = b.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+                value = isNaN(value) ? 0 : value;
+                value--;
+                input.value = value;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
