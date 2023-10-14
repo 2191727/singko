@@ -820,7 +820,51 @@ header {
     line-height: normal;
     white-space: nowrap;
 }
-
+#submit-payment{
+    background-color: #550091;
+    font-family: arc-blk;
+    font-size: 14px;
+    border: none;
+    border-radius: 15px;
+    align-items: center;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    margin-left: 110px;
+    }
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        color: white;
+        font-family: Orbitron, sans-serif;
+        flex: 1;
+    }
+    
+    .form-group input {
+        flex: 1;
+        margin-left: 10px;
+    }
+    
+    .form-group input[type="checkbox"] {
+        flex: 0;
+        margin-right: 10px; /* Adjust the margin as needed */
+        margin-left: 0;
+    }
+    
+    .form-group a {
+        margin-left: 15px; /* Adjust the margin as needed */
+    }
+    
+    
 /* -----     MEDIA QUERY    -----*/
 /* @media only screen and (max-width: 991px) {
   html {
