@@ -79,9 +79,29 @@
             <button class="proceed-to-payment" type="button" onclick="proceedToPayment()">Proceed to Payment Details</button>
         </div>
     </div>
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Select Payment Method</h2>
+            <form id="paymentForm" class="payment-method">
+                <div class="buttons-container">
+                    <input type="radio" name="paymentMethod" value="bank" id="bank-radio" class="bank-radio"/>
+                    <label for="bank-radio" class="bank-label">
+                        <img src="Images/bank-logo.png" alt="Bank" />
+                    </label>
     
-
-    <!-- Button to Proceed to Payment Details -->
+                    <input type="radio" name="paymentMethod" value="gcash" id="gcash-radio" class="gcash-radio"/>
+                    <label for="gcash-radio" class="gcash-label">
+                        <img src="Images/gcash-logo.png" alt="GCash" />
+                    </label>
+                </div>
+                <br /><br />
+                <button class="confirm-payment" type="button" onclick="confirmPaymentMethod()">Confirm</button>
+            </form>
+        </div>
+    </div>
+    
+    
     
 
     <!-- SCRIPT -->
@@ -181,25 +201,55 @@
         }
     
         function proceedToPayment() {
+    var paymentModal = document.getElementById("paymentModal");
+    paymentModal.style.display = "block"; // Display the payment modal
+
+    var confirmPaymentButton = document.querySelector(".confirm-payment");
+    confirmPaymentButton.addEventListener("click", function() {
+        var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+        if (!paymentMethod) {
+            alert("Please select a payment method.");
+        } else {
             var ticketQuantities = document.querySelectorAll(".tickets input");
             var totalTickets = 0;
-            var totalCost = 0; // Initialize totalCost here
-    
+            var totalCost = 0;
+
             for (var i = 0; i < ticketQuantities.length; i++) {
                 var quantity = parseInt(ticketQuantities[i].value, 10);
                 totalTickets += quantity;
-    
+
                 var ticketPrices = [13000, 7000, 6000, 5400, 5400];
                 totalCost += quantity * ticketPrices[i];
             }
-    
+
+            var paymentOption = paymentMethod.value;
+            var redirectUrl = "";
+
+            if (paymentOption === "bank") {
+                redirectUrl = "bcheckout.html";
+            } else if (paymentOption === "gcash") {
+                redirectUrl = "gcheckout.html";
+            }
+
             if (totalCost === 0) {
                 alert("Please add at least one ticket before proceeding to payment.");
-                return;
+            } else {
+                if (redirectUrl === "bcheckout.html") {
+                    window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to bcheckout with the totalCost
+                } else if (redirectUrl === "gcheckout.html") {
+                    window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to gcheckout with the amount
+                }
             }
-    
-            window.location.href = "checkout.html";
+
+            closePaymentModal(); // Move the function call inside the else block
         }
+    });
+}
+
+function closePaymentModal() {
+    var paymentModal = document.getElementById("paymentModal");
+    paymentModal.style.display = "none";
+}
     </script>
     
 </body>

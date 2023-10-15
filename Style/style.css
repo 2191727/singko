@@ -706,101 +706,97 @@ header {
     align-self: flex-end;
 }
 
-.proceed-to-payment:hover {
-    background-color: rgb(36, 5, 75);
-}
-
-.rectangle {
-    width: 100%;
-    height: auto;
-    background-color: #d9d9d994;
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px #00000040;
-    margin-bottom: 20px;
-    padding: 15px;
-    font-family: 'arc-blk';
-}
-
-#summaryContentRectangle {
-    display: block;
-}
-
-#totalCostRectangle {
-    display: block;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #300d2fc4;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 600px;
-    height: auto;
-    /* Adjust the height as needed */
-    border-radius: 34px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'arc-blk';
-    color: white;
-    position: relative;
-}
-
-.close {
-    color: #aaa;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#summaryContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.proceed-to-payment {
-    display: block;
-    font-family: 'arc-blk';
-    width: 150px;
-    height: 40px;
-    background-color: #550091;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-top: 20px;
-    /* Adjust the margin to position the button */
-}
+    .proceed-to-payment:hover {
+        background-color: rgb(36, 5, 75);
+    }
+    .rectangle {
+        width: 100%;
+        height: auto;
+        background-color: #d9d9d994;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px #00000040;
+        margin-bottom: 20px;
+        padding: 15px;
+        font-family: 'arc-blk';
+    }
+    
+    #summaryContentRectangle {
+        display: block;
+    }
+    
+    #totalCostRectangle {
+        display: block;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-content {
+        background-color: #300d2fc4;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 600px;
+        height: auto; /* Adjust the height as needed */
+        border-radius: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: 'arc-blk';
+        color: white;
+        position: relative;
+    }
+    
+    .close {
+        color: #aaa;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    #summaryContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .proceed-to-payment {
+        display: block;
+        font-family: 'arc-blk';
+        width: 150px;
+        height: 40px;
+        background-color: #550091;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 20px; /* Adjust the margin to position the button */
+    }
 
 /* -----      Checkout      -----*/
 
-.checkout .order-summary {
+.gcheckout .order-summary {
     position: absolute;
     top: 172px;
     left: 653px;
@@ -814,7 +810,7 @@ header {
     line-height: normal;
 }
 
-.checkout .text-wrapper-5 {
+.gcheckout .text-wrapper-5 {
     position: absolute;
     width: 261px;
     top: 903px;
@@ -829,7 +825,7 @@ header {
     line-height: normal;
 }
 
-.checkout .event-name {
+.gcheckout .event-name {
     position: absolute;
     width: 441px;
     top: 266px;
@@ -843,7 +839,7 @@ header {
     line-height: normal;
 }
 
-.checkout .text-wrapper-7 {
+.gcheckout .text-wrapper-7 {
     position: absolute;
     width: 209px;
     top: 300px;
@@ -857,7 +853,7 @@ header {
     line-height: normal;
 }
 
-.checkout .rectangle {
+.gcheckout .rectangle {
     position: absolute;
     width: 1464px;
     height: 1057px;
@@ -867,7 +863,7 @@ header {
     mix-blend-mode: color-burn;
 }
 
-.checkout .rectangle-2 {
+.gcheckout .rectangle-2 {
     position: absolute;
     width: 944px;
     height: 840px;
@@ -879,7 +875,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .form-group {
+.gcheckout .form-group {
     position: absolute;
     height: 52px;
     background-color: #060606;
@@ -897,7 +893,7 @@ header {
     line-height: normal;
 }
 
-.checkout .proceed {
+.gcheckout .proceed {
     background-color: #550091;
     font-family: 'Archivo Black', Helvetica;
     font-size: 20px;
@@ -909,12 +905,12 @@ header {
     cursor: pointer;
 }
 
-.checkout .proceed:hover {
-    background-color: rgb(120, 79, 170);
-    transition: all ease 0.3s;
-}
+    .checkout .proceed:hover {
+        background-color: rgb(120, 79, 170);
+        transition: all ease 0.3s;
+    }
 
-.checkout .rectangle-4 {
+.gcheckout .rectangle-4 {
     position: absolute;
     width: 687px;
     height: 65px;
@@ -925,7 +921,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .rectangle-4 {
+.gcheckout .rectangle-4 {
     position: absolute;
     width: 687px;
     height: 65px;
@@ -936,7 +932,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .rectangle-5 {
+.gcheckout .rectangle-5 {
     position: absolute;
     width: 687px;
     height: 65px;
@@ -947,7 +943,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .rectangle-6 {
+.gcheckout .rectangle-6 {
     position: absolute;
     width: 687px;
     height: 65px;
@@ -969,7 +965,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .rectangle-6 {
+.gcheckout .rectangle-6 {
     position: absolute;
     width: 687px;
     height: 65px;
@@ -980,7 +976,7 @@ header {
     box-shadow: 0px 4px 4px #00000040;
 }
 
-.checkout .payment-method {
+.gcheckout .payment-method {
     position: absolute;
     top: 619px;
     left: 545px;
@@ -1010,36 +1006,35 @@ header {
     display: block;
     cursor: pointer;
     margin-left: 110px;
-}
-
-.form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    color: white;
-    font-family: Orbitron, sans-serif;
-    flex: 1;
-}
-
-.form-group input {
-    flex: 1;
-    margin-left: 10px;
-}
-
-.form-group input[type="checkbox"] {
-    flex: 0;
-    margin-right: 10px;
-    margin-left: 0;
-}
-
-.form-group a {
-    margin-left: 0;
-}
-
-
+    }
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        color: white;
+        font-family: Orbitron, sans-serif;
+        flex: 1;
+    }
+    
+    .form-group input {
+        flex: 1;
+        margin-left: 10px;
+    }
+    
+    .form-group input[type="checkbox"] {
+        flex: 0;
+        margin-right: 10px; 
+        margin-left: 0;
+    }
+    
+    .form-group a {
+        margin-left: 0; 
+    }
+    
+ 
 
 /* -----     MEDIA QUERY    -----*/
 /* @media only screen and (max-width: 991px) {
