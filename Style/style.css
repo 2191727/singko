@@ -662,6 +662,7 @@ header {
     background-color: rgb(36, 5, 75);
 }
 
+<<<<<<< Updated upstream
 #tick-pr .proceed :hover {
     background-color: rgb(120, 79, 170);
     transition: all ease 0.3s;
@@ -705,6 +706,141 @@ header {
     margin: auto;
     align-self: flex-end;
 }
+
+.proceed-to-payment:hover {
+    background-color: rgb(36, 5, 75);
+}
+
+.rectangle {
+    width: 100%;
+    height: auto;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-family: 'arc-blk';
+}
+
+#summaryContentRectangle {
+    display: block;
+}
+
+#totalCostRectangle {
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #300d2fc4;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 600px;
+    height: auto;
+    /* Adjust the height as needed */
+    border-radius: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'arc-blk';
+    color: white;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#summaryContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.proceed-to-payment {
+    display: block;
+    font-family: 'arc-blk';
+    width: 150px;
+    height: 40px;
+    background-color: #550091;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 20px;
+    /* Adjust the margin to position the button */
+}
+/*  -----    Ticket Prices                -----*/
+    #tick-pr .proceed :hover {
+        background-color: rgb(120, 79, 170);
+        transition: all ease 0.3s;
+    }
+    #summary {
+        display: none;
+        border: 1px solid #e1e1e1;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    #summary h2 {
+        margin-bottom: 10px;
+    }
+
+    #summaryContent {
+        margin-bottom: 10px;
+    }
+
+    #totalCost {
+        font-weight: bold;
+    }
+
+    .proceed-to-payment {
+        display: block;
+        font-family: arc-blk;
+        width: 150px;
+        height: 40px;
+        background-color: #550091;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        padding-right: 15px;
+        padding-left: 15px;
+        align-items: center;
+        display: block;
+        margin: auto;
+        align-self: flex-end;
+    }
 
     .proceed-to-payment:hover {
         background-color: rgb(36, 5, 75);
@@ -778,10 +914,56 @@ header {
         align-items: center;
         text-align: center;
     }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
     
-    .proceed-to-payment {
+    .buttons-container {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .gcash-label,
+    .bank-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: all 0.3s; 
+        margin-right: 10px; 
+    }
+    
+    .gcash-label:hover,
+    .bank-label:hover {
+        border-color: #007bff;
+    }
+    .gcash-radio,
+    .bank-radio {
+    visibility: hidden; 
+    }
+    
+    .gcash-label img,
+    .bank-label img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .gcash-radio:checked + .gcash-label,
+    .bank-radio:checked + .bank-label {
+        border-color: #007bff;
+        background-color: #f8f9fa;
+    }
+    .confirm-payment{
         display: block;
-        font-family: 'arc-blk';
+        font-family: arc-blk;
         width: 150px;
         height: 40px;
         background-color: #550091;
@@ -791,10 +973,18 @@ header {
         cursor: pointer;
         padding-right: 15px;
         padding-left: 15px;
-        margin-top: 20px; /* Adjust the margin to position the button */
+        align-items: center;
+        display: block;
+        margin: auto;
+        align-self: flex-end;
     }
+    .confirm-payment:hover {
+        background-color: rgb(36, 5, 75);
+    }
+    
+>>>>>>> Stashed changes
 
-/* -----      Checkout      -----*/
+/* -----   GCASH Checkout      -----*/
 
 .gcheckout .order-summary {
     position: absolute;
@@ -905,7 +1095,7 @@ header {
     cursor: pointer;
 }
 
-    .checkout .proceed:hover {
+    .gcheckout .proceed:hover {
         background-color: rgb(120, 79, 170);
         transition: all ease 0.3s;
     }
@@ -989,8 +1179,7 @@ header {
     line-height: normal;
     white-space: nowrap;
 }
-
-#submit-payment {
+#submit-payment{
     background-color: #550091;
     font-family: arc-blk;
     font-size: 14px;
@@ -1033,8 +1222,254 @@ header {
     .form-group a {
         margin-left: 0; 
     }
-    
- 
+/* -----     BANK CHECKOUT   -----*/
+.bcheckout .order-summary {
+    position: absolute;
+    top: 172px;
+    left: 653px;
+    text-shadow: 0px 4px 4px #00000040;
+    font-family: "Orbitron", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 55px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.bcheckout .text-wrapper-5 {
+    position: absolute;
+    width: 261px;
+    top: 903px;
+    left: 794px;
+    text-shadow: 0px 4px 4px #00000040;
+    font-family: "Archivo Black", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.bcheckout .event-name {
+    position: absolute;
+    width: 441px;
+    top: 266px;
+    left: 440px;
+    font-family: "Archivo Black", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.bcheckout .text-wrapper-7 {
+    position: absolute;
+    width: 209px;
+    top: 300px;
+    left: 512px;
+    font-family: "Archivo Black", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.bcheckout .rectangle {
+    position: absolute;
+    width: 1464px;
+    height: 1057px;
+    top: 2px;
+    left: 8px;
+    background-color: #d9d9d9;
+    mix-blend-mode: color-burn;
+}
+
+.bcheckout .rectangle-2 {
+    position: absolute;
+    width: 944px;
+    height: 840px;
+    top: 146px;
+    left: 455px;
+    background-color: #300d2fc4;
+    border-radius: 34px;
+    border: 0px none;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .form-group {
+    position: absolute;
+    height: 52px;
+    background-color: #060606;
+    border-radius: 36px;
+    width: 261px;
+    top: 903px;
+    left: 794px;
+    text-shadow: 0px 4px 4px #00000040;
+    font-family: "Archivo Black", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.bcheckout .proceed {
+    background-color: #550091;
+    font-family: 'Archivo Black', Helvetica;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 20px 25px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+<<<<<<< Updated upstream
+.checkout .proceed:hover {
+    background-color: rgb(120, 79, 170);
+    transition: all ease 0.3s;
+}
+=======
+    .bcheckout .proceed:hover {
+        background-color: rgb(120, 79, 170);
+        transition: all ease 0.3s;
+    }
+>>>>>>> Stashed changes
+
+.bcheckout .rectangle-4 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 341px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .rectangle-4 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 341px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .rectangle-5 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 431px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .rectangle-6 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 516px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.rectangle-5 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 431px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .rectangle-6 {
+    position: absolute;
+    width: 687px;
+    height: 65px;
+    top: 516px;
+    left: 545px;
+    background-color: #d9d9d994;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.bcheckout .payment-method {
+    position: absolute;
+    top: 619px;
+    left: 545px;
+    font-family: "Archivo Black", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+#submit-payment {
+    background-color: #550091;
+    font-family: arc-blk;
+    font-size: 14px;
+    border: none;
+    border-radius: 15px;
+    align-items: center;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    margin-left: 110px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: white;
+    font-family: Orbitron, sans-serif;
+    flex: 1;
+}
+
+.form-group input {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.form-group input[type="checkbox"] {
+    flex: 0;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.form-group a {
+    margin-left: 0;
+}
+
+
 
 /* -----     MEDIA QUERY    -----*/
 /* @media only screen and (max-width: 991px) {
