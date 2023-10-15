@@ -41,28 +41,29 @@
                 <span id="ticketType2">2-DAY Regular Wanderer</span> - <span id="ticketPrice2">PHP 7,000.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class "up" onClick='increaseCount(event, this)'>+</span>
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
             <div class="tick3">
                 <span id="ticketType3">2-DAY Early Entry</span> - <span id="ticketPrice3">PHP 6,000.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class "up" onClick='increaseCount(event, this)'>+</span>
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
             <div class="tick4">
                 <span id="ticketType4">DAY 1 - Regular Wanderer</span> - <span id="ticketPrice4">PHP 5,400.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class "up" onClick='increaseCount(event, this)'>+</span>
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
             <div class="tick5">
                 <span id="ticketType5">DAY 2 - Regular Wanderer</span> - <span id="ticketPrice5">PHP 5,400.00</span>
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" value="0">
-                <span class "up" onClick='increaseCount(event, this)'>+</span>
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
         </div>
         <button class="proceed" type="button" onclick="showSummary()">Calculate Order Summary</button>
+        <button class="statistics" type="button" onclick="showTickStats()">View Ticket Statistics</button>
     </div>
 
     <div id="myModal" class="modal">
@@ -76,7 +77,8 @@
                 <p id="totalCostModal"></p>
             </div>
             <br>
-            <button class="proceed-to-payment" type="button" onclick="proceedToPayment()">Proceed to Payment Details</button>
+            <button class="proceed-to-payment" type="button" onclick="proceedToPayment()">Proceed to Payment
+                Details</button>
         </div>
     </div>
     <div id="paymentModal" class="modal">
@@ -85,12 +87,12 @@
             <h2>Select Payment Method</h2>
             <form id="paymentForm" class="payment-method">
                 <div class="buttons-container">
-                    <input type="radio" name="paymentMethod" value="bank" id="bank-radio" class="bank-radio"/>
+                    <input type="radio" name="paymentMethod" value="bank" id="bank-radio" class="bank-radio" />
                     <label for="bank-radio" class="bank-label">
                         <img src="Images/bank-logo.png" alt="Bank" />
                     </label>
-    
-                    <input type="radio" name="paymentMethod" value="gcash" id="gcash-radio" class="gcash-radio"/>
+
+                    <input type="radio" name="paymentMethod" value="gcash" id="gcash-radio" class="gcash-radio" />
                     <label for="gcash-radio" class="gcash-label">
                         <img src="Images/gcash-logo.png" alt="GCash" />
                     </label>
@@ -100,86 +102,86 @@
             </form>
         </div>
     </div>
-    
-    
-    
+
+
+
 
     <!-- SCRIPT -->
     <script>
-       var button = document.querySelector(".proceed");
-    button.addEventListener("click", function () {
-    if (checkIfTicketsSelected()) {
-        showSummaryModal();
-    } else {
-        alert("Please add at least one ticket before calculating the order summary.");
-    }
-});
+        var button = document.querySelector(".proceed");
+        button.addEventListener("click", function () {
+            if (checkIfTicketsSelected()) {
+                showSummaryModal();
+            } else {
+                alert("Please add at least one ticket before calculating the order summary.");
+            }
+        });
         function checkIfTicketsSelected() {
-        var ticketQuantities = document.querySelectorAll(".tickets input");
-    for (var i = 0; i < ticketQuantities.length; i++) {
-        var quantity = parseInt(ticketQuantities[i].value, 10);
-        if (quantity > 0) {
-            return true;
+            var ticketQuantities = document.querySelectorAll(".tickets input");
+            for (var i = 0; i < ticketQuantities.length; i++) {
+                var quantity = parseInt(ticketQuantities[i].value, 10);
+                if (quantity > 0) {
+                    return true;
+                }
+            }
+            return false;
         }
-    }
-    return false;
-}
         function showSummaryModal() {
-        var ticketQuantities = document.querySelectorAll(".tickets input");
-        var totalTickets = 0;
-        var totalCost = 0;
+            var ticketQuantities = document.querySelectorAll(".tickets input");
+            var totalTickets = 0;
+            var totalCost = 0;
 
-        var summaryContent = document.getElementById("summaryContent");
-    summaryContent.innerHTML = ''; // Clear any existing content
+            var summaryContent = document.getElementById("summaryContent");
+            summaryContent.innerHTML = ''; // Clear any existing content
 
-        var ticketTypes = [
-        "2-DAY Star Wanderer (VIP)",
-        "2-DAY Regular Wanderer",
-        "2-DAY Early Entry",
-        "DAY 1 - Regular Wanderer",
-        "DAY 2 - Regular Wanderer"
-    ];
+            var ticketTypes = [
+                "2-DAY Star Wanderer (VIP)",
+                "2-DAY Regular Wanderer",
+                "2-DAY Early Entry",
+                "DAY 1 - Regular Wanderer",
+                "DAY 2 - Regular Wanderer"
+            ];
 
-        var ticketPrices = [13000, 7000, 6000, 5400, 5400];
+            var ticketPrices = [13000, 7000, 6000, 5400, 5400];
 
-    for (var i = 0; i < ticketQuantities.length; i++) {
-        var quantity = parseInt(ticketQuantities[i].value, 10);
-        totalTickets += quantity;
+            for (var i = 0; i < ticketQuantities.length; i++) {
+                var quantity = parseInt(ticketQuantities[i].value, 10);
+                totalTickets += quantity;
 
-        if (quantity > 0) {
-            var ticketTypeRectangle = document.createElement('div');
-            ticketTypeRectangle.classList.add('rectangle');
-            ticketTypeRectangle.style.display = "block";
+                if (quantity > 0) {
+                    var ticketTypeRectangle = document.createElement('div');
+                    ticketTypeRectangle.classList.add('rectangle');
+                    ticketTypeRectangle.style.display = "block";
 
-            var label = document.createElement('label');
-            label.textContent = `${ticketTypes[i]} Quantity: ${quantity}`;
+                    var label = document.createElement('label');
+                    label.textContent = `${ticketTypes[i]} Quantity: ${quantity}`;
 
-            var ticketPrice = quantity * ticketPrices[i]; // Calculate the ticket price
+                    var ticketPrice = quantity * ticketPrices[i]; // Calculate the ticket price
 
-            var priceLabel = document.createElement('label');
-            priceLabel.textContent = `Ticket Price: PHP ${ticketPrice.toFixed(2)}`;
+                    var priceLabel = document.createElement('label');
+                    priceLabel.textContent = `Ticket Price: PHP ${ticketPrice.toFixed(2)}`;
 
-            ticketTypeRectangle.appendChild(label);
-            ticketTypeRectangle.appendChild(priceLabel); // Append the price label
-            summaryContent.appendChild(ticketTypeRectangle);
+                    ticketTypeRectangle.appendChild(label);
+                    ticketTypeRectangle.appendChild(priceLabel); // Append the price label
+                    summaryContent.appendChild(ticketTypeRectangle);
+                }
+
+                totalCost += quantity * ticketPrices[i];
+            }
+
+            var totalCostModal = document.getElementById("totalCostModal");
+            totalCostModal.textContent = "Total Cost: PHP " + totalCost.toFixed(2);
+
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
         }
 
-        totalCost += quantity * ticketPrices[i];
-    }
 
-        var totalCostModal = document.getElementById("totalCostModal");
-    totalCostModal.textContent = "Total Cost: PHP " + totalCost.toFixed(2);
-
-        var modal = document.getElementById("myModal");
-        modal.style.display = "block";
-}
-
-    
         function closeModal() {
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
-    
+
         function increaseCount(a, b) {
             var input = b.previousElementSibling;
             var value = parseInt(input.value, 10);
@@ -188,7 +190,7 @@
             input.value = value;
             updateTotalCost();
         }
-    
+
         function decreaseCount(a, b) {
             var input = b.nextElementSibling;
             var value = parseInt(input.value, 10);
@@ -199,59 +201,59 @@
                 updateTotalCost();
             }
         }
-    
+
         function proceedToPayment() {
-    var paymentModal = document.getElementById("paymentModal");
-    paymentModal.style.display = "block"; // Display the payment modal
+            var paymentModal = document.getElementById("paymentModal");
+            paymentModal.style.display = "block"; // Display the payment modal
 
-    var confirmPaymentButton = document.querySelector(".confirm-payment");
-    confirmPaymentButton.addEventListener("click", function() {
-        var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
-        if (!paymentMethod) {
-            alert("Please select a payment method.");
-        } else {
-            var ticketQuantities = document.querySelectorAll(".tickets input");
-            var totalTickets = 0;
-            var totalCost = 0;
+            var confirmPaymentButton = document.querySelector(".confirm-payment");
+            confirmPaymentButton.addEventListener("click", function () {
+                var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!paymentMethod) {
+                    alert("Please select a payment method.");
+                } else {
+                    var ticketQuantities = document.querySelectorAll(".tickets input");
+                    var totalTickets = 0;
+                    var totalCost = 0;
 
-            for (var i = 0; i < ticketQuantities.length; i++) {
-                var quantity = parseInt(ticketQuantities[i].value, 10);
-                totalTickets += quantity;
+                    for (var i = 0; i < ticketQuantities.length; i++) {
+                        var quantity = parseInt(ticketQuantities[i].value, 10);
+                        totalTickets += quantity;
 
-                var ticketPrices = [13000, 7000, 6000, 5400, 5400];
-                totalCost += quantity * ticketPrices[i];
-            }
+                        var ticketPrices = [13000, 7000, 6000, 5400, 5400];
+                        totalCost += quantity * ticketPrices[i];
+                    }
 
-            var paymentOption = paymentMethod.value;
-            var redirectUrl = "";
+                    var paymentOption = paymentMethod.value;
+                    var redirectUrl = "";
 
-            if (paymentOption === "bank") {
-                redirectUrl = "bcheckout.html";
-            } else if (paymentOption === "gcash") {
-                redirectUrl = "gcheckout.html";
-            }
+                    if (paymentOption === "bank") {
+                        redirectUrl = "bcheckout.html";
+                    } else if (paymentOption === "gcash") {
+                        redirectUrl = "gcheckout.html";
+                    }
 
-            if (totalCost === 0) {
-                alert("Please add at least one ticket before proceeding to payment.");
-            } else {
-                if (redirectUrl === "bcheckout.html") {
-                    window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to bcheckout with the totalCost
-                } else if (redirectUrl === "gcheckout.html") {
-                    window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to gcheckout with the amount
+                    if (totalCost === 0) {
+                        alert("Please add at least one ticket before proceeding to payment.");
+                    } else {
+                        if (redirectUrl === "bcheckout.html") {
+                            window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to bcheckout with the totalCost
+                        } else if (redirectUrl === "gcheckout.html") {
+                            window.location.href = redirectUrl + "?totalCost=" + totalCost; // Redirect to gcheckout with the amount
+                        }
+                    }
+
+                    closePaymentModal(); // Move the function call inside the else block
                 }
-            }
-
-            closePaymentModal(); // Move the function call inside the else block
+            });
         }
-    });
-}
 
-function closePaymentModal() {
-    var paymentModal = document.getElementById("paymentModal");
-    paymentModal.style.display = "none";
-}
+        function closePaymentModal() {
+            var paymentModal = document.getElementById("paymentModal");
+            paymentModal.style.display = "none";
+        }
     </script>
-    
+
 </body>
 
 </html>
