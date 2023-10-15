@@ -661,8 +661,6 @@ header {
 #tick-pr .proceed:hover {
     background-color: rgb(36, 5, 75);
 }
-
-<<<<<<< Updated upstream
 #tick-pr .proceed :hover {
     background-color: rgb(120, 79, 170);
     transition: all ease 0.3s;
@@ -981,8 +979,7 @@ header {
     .confirm-payment:hover {
         background-color: rgb(36, 5, 75);
     }
-    
->>>>>>> Stashed changes
+
 
 /* -----   GCASH Checkout      -----*/
 
@@ -1332,17 +1329,17 @@ header {
     cursor: pointer;
 }
 
-<<<<<<< Updated upstream
+
 .checkout .proceed:hover {
     background-color: rgb(120, 79, 170);
     transition: all ease 0.3s;
 }
-=======
+
     .bcheckout .proceed:hover {
         background-color: rgb(120, 79, 170);
         transition: all ease 0.3s;
     }
->>>>>>> Stashed changes
+
 
 .bcheckout .rectangle-4 {
     position: absolute;
