@@ -86,20 +86,33 @@
 
     <!-- SCRIPT -->
     <script>
-        var button = document.querySelector(".proceed");
-        button.addEventListener("click", function () {
-            showSummaryModal();
-        });
-    
+       var button = document.querySelector(".proceed");
+    button.addEventListener("click", function () {
+    if (checkIfTicketsSelected()) {
+        showSummaryModal();
+    } else {
+        alert("Please add at least one ticket before calculating the order summary.");
+    }
+});
+        function checkIfTicketsSelected() {
+        var ticketQuantities = document.querySelectorAll(".tickets input");
+    for (var i = 0; i < ticketQuantities.length; i++) {
+        var quantity = parseInt(ticketQuantities[i].value, 10);
+        if (quantity > 0) {
+            return true;
+        }
+    }
+    return false;
+}
         function showSummaryModal() {
-    var ticketQuantities = document.querySelectorAll(".tickets input");
-    var totalTickets = 0;
-    var totalCost = 0;
+        var ticketQuantities = document.querySelectorAll(".tickets input");
+        var totalTickets = 0;
+        var totalCost = 0;
 
-    var summaryContent = document.getElementById("summaryContent");
+        var summaryContent = document.getElementById("summaryContent");
     summaryContent.innerHTML = ''; // Clear any existing content
 
-    var ticketTypes = [
+        var ticketTypes = [
         "2-DAY Star Wanderer (VIP)",
         "2-DAY Regular Wanderer",
         "2-DAY Early Entry",
@@ -107,7 +120,7 @@
         "DAY 2 - Regular Wanderer"
     ];
 
-    var ticketPrices = [13000, 7000, 6000, 5400, 5400];
+        var ticketPrices = [13000, 7000, 6000, 5400, 5400];
 
     for (var i = 0; i < ticketQuantities.length; i++) {
         var quantity = parseInt(ticketQuantities[i].value, 10);
@@ -134,11 +147,11 @@
         totalCost += quantity * ticketPrices[i];
     }
 
-    var totalCostModal = document.getElementById("totalCostModal");
+        var totalCostModal = document.getElementById("totalCostModal");
     totalCostModal.textContent = "Total Cost: PHP " + totalCost.toFixed(2);
 
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
 }
 
     
