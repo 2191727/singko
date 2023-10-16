@@ -394,16 +394,16 @@
     const detailedPopup = document.getElementById('detailed-popup');
     detailedPopup.innerHTML = `
         <h3>Detailed Information</h3>
-        <p><strong>First Name:</strong> ${data.firstName}</p>
-        <p><strong>Last Name:</strong> ${data.lastName}</p>
-        <p><strong>Age:</strong> ${data.age}</p>
-        <p><strong>Sex:</strong> ${data.sex.charAt(0).toUpperCase() + data.sex.slice(1)}</p>
-        <p><strong>Address:</strong> ${data.address}</p>
-        <p><strong>Phone Number:</strong> ${data.phone}</p>
-        <p><strong>Email Address:</strong> ${data.email}</p>
+        <p><strong>First Name:</strong> ${data.firstName}</p><br>
+        <p><strong>Last Name:</strong> ${data.lastName}</p><br>
+        <p><strong>Age:</strong> ${data.age}</p><br>
+        <p><strong>Sex:</strong> ${data.sex.charAt(0).toUpperCase() + data.sex.slice(1)}</p><br>
+        <p><strong>Address:</strong> ${data.address}</p><br>
+        <p><strong>Phone Number:</strong> ${data.phone}</p><br>
+        <p><strong>Email Address:</strong> ${data.email}</p><br>
         <div class="button-container">
-        <button id="confirmBtn" type="button" style="display: none;">Confirm</button>
-        <button id="editBtn" type="button" style="display: none;">Edit</button>
+        <button id="confirmBtn" type="button" ">Confirm</button>
+        <button id="editBtn" type="button"">Edit</button>
         </div>
     `;
 
@@ -450,7 +450,7 @@ function displayEditForm(data) {
                 <label for="edit-email">Email Address:</label>
                 <input type="email" id="edit-email" name="edit-email" value="${data.email}"><br><br>
                 <div class="button-container">
-                <button id="Update" type="button" onclick="updateFormData()">Update</button>
+                <button id="Update" type="button" onclick="updateFormData()" >Update</button>
                 <button id="Bck" type="button" onclick="closeUpdateDetailsModal()">Back</button>
                 </div>
             </form>
