@@ -227,7 +227,7 @@
         
                     <!-- Add other fields as necessary -->
         
-                    <button type="submit">Update</button>
+                    <button id ="summary-button" type="submit">Update</button>
                 </form>
             </div>
         </div>
@@ -256,6 +256,57 @@
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
+
+            // Validation for First Name
+    if (firstName.trim() === '') {
+    alert('Please enter your first name.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Last Name
+    if (lastName.trim() === '') {
+    alert('Please enter your last name.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Age
+    if (age.trim() === '' || isNaN(age) || parseInt(age) <= 0) {
+    alert('Please enter a valid age.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Sex (element with id="male" and id="female" for radio buttons)
+    if (!sex) {
+    alert('Please select your gender.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Address
+    if (address.trim() === '') {
+    alert('Please enter your address.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Phone Number (10-digit phone number is expected)
+    const phoneRegex = /^\d{10}$/;
+    if (!phone.match(phoneRegex)) {
+    alert('Please enter a valid 10-digit phone number.');
+    // Prevent form submission
+    return;
+}
+
+// Validation for Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(emailRegex)) {
+    alert('Please enter a valid email address.');
+    // Prevent form submission
+    return;
+}
     
             // Perform offline processing
             const data = {
