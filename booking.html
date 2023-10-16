@@ -94,7 +94,7 @@
             .form-group button {
                 width: 100%;
                 padding: 10px;
-                background: #060606;
+                background: #550091;
                 color: #fff;
                 border: none;
                 border-radius: 5px;
@@ -120,18 +120,13 @@
         }
         
         #summary-button {
-        background: #4CAF50;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-        display: none;
+                width: 100%;
+                padding: 10px;
+                background: #550091;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
         }
 
     </style>
@@ -199,7 +194,7 @@
         <div class="form-group">
             <button type="button" id="proceed-to-tickets" disabled>Proceed to Ticket Prices</button>
         </div>
-    </div>
+    <div class="form-group">
     <button id="summary-button" style="display: none;" onclick="openSummaryModal()">
         Personal Details
     </button>
@@ -212,6 +207,7 @@
             </div>
         </div>
     </div>
+</div>
     <div id="updateDetailsModal" class="modal">
         <div id="updateDetailsModal" class="modal">
             <div class="modal-content">
@@ -243,7 +239,7 @@
             <div id="detailed-popup"></div>
         </div>
     </div>
-
+</div>
     <script>
         // Disable the "Proceed to Ticket Prices" button by default
         document.getElementById('proceed-to-tickets').disabled = true;
