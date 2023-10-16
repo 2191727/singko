@@ -129,6 +129,29 @@
                 cursor: pointer;
         }
 
+    .button-container {
+        align-items: center;
+        text-align: center;
+        margin-top: 20px; /* Adjust the top margin as needed */
+        }
+
+    .button-container button {
+        text-align: center;
+        align-items: center;
+        background-color: #550091; /* Green background color */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Padding around the text */
+        border: none; /* No border */
+        cursor: pointer; /* Cursor style on hover */
+        margin-top: 10px; /* Some space from the previous element */
+        }
+
+    .button-container button:hover {
+        background-color: #550091; 
+        text-align: center;
+        align-items: center;
+        }
+
     </style>
 </head>
 <body>
@@ -257,7 +280,7 @@
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
 
-            // Validation for First Name
+     // Validation for First Name
     if (firstName.trim() === '') {
     alert('Please enter your first name.');
     // Prevent form submission
@@ -267,36 +290,31 @@
 // Validation for Last Name
     if (lastName.trim() === '') {
     alert('Please enter your last name.');
-    // Prevent form submission
     return;
 }
 
 // Validation for Age
     if (age.trim() === '' || isNaN(age) || parseInt(age) <= 0) {
     alert('Please enter a valid age.');
-    // Prevent form submission
     return;
 }
 
 // Validation for Sex (element with id="male" and id="female" for radio buttons)
     if (!sex) {
     alert('Please select your gender.');
-    // Prevent form submission
     return;
 }
 
 // Validation for Address
     if (address.trim() === '') {
     alert('Please enter your address.');
-    // Prevent form submission
     return;
 }
 
-// Validation for Phone Number (10-digit phone number is expected)
-    const phoneRegex = /^\d{10}$/;
+// Validation for Phone Number (11-digit phone number is expected)
+    const phoneRegex = /^\d{11}$/;
     if (!phone.match(phoneRegex)) {
-    alert('Please enter a valid 10-digit phone number.');
-    // Prevent form submission
+    alert('Please enter a valid 11-digit phone number.');
     return;
 }
 
@@ -304,7 +322,6 @@
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.match(emailRegex)) {
     alert('Please enter a valid email address.');
-    // Prevent form submission
     return;
 }
     
@@ -384,8 +401,10 @@
         <p><strong>Address:</strong> ${data.address}</p>
         <p><strong>Phone Number:</strong> ${data.phone}</p>
         <p><strong>Email Address:</strong> ${data.email}</p>
-        <button id="confirmBtn" style="display: none;">Confirm</button>
-        <button id="editBtn" style="display: none;">Edit</button>
+        <div class="button-container">
+        <button id="confirmBtn" type="button" style="display: none;">Confirm</button>
+        <button id="editBtn" type="button" style="display: none;">Edit</button>
+        </div>
     `;
 
     const editBtn = document.getElementById('editBtn');
@@ -430,8 +449,10 @@ function displayEditForm(data) {
                 <input type="tel" id="edit-phone" name="edit-phone" value="${data.phone}"><br><br>
                 <label for="edit-email">Email Address:</label>
                 <input type="email" id="edit-email" name="edit-email" value="${data.email}"><br><br>
-                <button type="button" onclick="updateFormData()">Update</button>
-                <button onclick="closeUpdateDetailsModal()">Back</button>
+                <div class="button-container">
+                <button id="Update" type="button" onclick="updateFormData()">Update</button>
+                <button id="Bck" type="button" onclick="closeUpdateDetailsModal()">Back</button>
+                </div>
             </form>
         `;
         }
