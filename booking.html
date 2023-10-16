@@ -118,6 +118,22 @@
             margin: 20px auto;
             text-align: center;
         }
+        
+        #summary-button {
+        background: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+        display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -184,24 +200,58 @@
             <button type="button" id="proceed-to-tickets" disabled>Proceed to Ticket Prices</button>
         </div>
     </div>
-
-    <div class="summary">
-        <h2>Summary</h2>
-        <div id="summary"></div>
+    <button id="summary-button" style="display: none;" onclick="openSummaryModal()">
+        Personal Details
+    </button>
+    <div id="summaryModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeSummaryModal()">&times;</span>
+            <div id="summary-content" class="summary">
+                <h2>Summary</h2>
+                <div id="summary"></div>
+            </div>
+        </div>
+    </div>
+    <div id="updateDetailsModal" class="modal">
+        <div id="updateDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Update Details</h2>
+                <form id="update-form">
+                    <!-- Add your form fields for updating details here -->
+                    <!-- Example: -->
+                    <label for="update-first-name">First Name:</label>
+                    <input type="text" id="update-first-name" name="update-first-name"><br><br>
+        
+                    <label for="update-last-name">Last Name:</label>
+                    <input type="text" id="update-last-name" name="update-last-name"><br><br>
+        
+                    <label for="update-age">Age:</label>
+                    <input type="number" id="update-age" name="update-age"><br><br>
+        
+                    <!-- Add other fields as necessary -->
+        
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="detailed">
-        <h2>Detailed Information</h2>
-        <div id="detailed"></div>
+    <div id="personalModal" class="personal-modal">
+        <div class="personal-content">
+            <span class="close">&times;</span>
+            <div id="detailed-popup"></div>
+        </div>
     </div>
 
     <script>
         // Disable the "Proceed to Ticket Prices" button by default
         document.getElementById('proceed-to-tickets').disabled = true;
-
+        
+    
         document.getElementById('data-form').addEventListener('submit', function (event) {
             event.preventDefault();
-
+    
             // Collect form data
             const firstName = document.getElementById('first-name').value;
             const lastName = document.getElementById('last-name').value;
@@ -210,73 +260,183 @@
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
-
-            if (!firstName || !lastName || !age || !sex || !address || !phone || !email) {
-                alert('Please complete the entire form before proceeding.');
-                return; // Do not proceed if the form is incomplete
-            }
-
+    
             // Perform offline processing
             const data = {
                 firstName,
                 lastName,
                 age,
-                sex: sex.value,
+                sex: sex ? sex.value : null,
                 address,
                 phone,
                 email,
             };
-
+    
             // Save data in local storage
             localStorage.setItem('formData', JSON.stringify(data));
-
+    
             // Update summary and detailed information
             updateSummary(data);
             updateDetailed(data);
-
+    
             // Enable the "Proceed to Ticket Prices" button
             document.getElementById('proceed-to-tickets').disabled = false;
-
+            document.getElementById('proceed-to-tickets').addEventListener('click', function () {
+             // Navigate to the "ticket_prices.html" page
+        window.location.href = 'prices.html';
+        });
+    
             // Clear the form
             document.getElementById('data-form').reset();
         });
+    
+        function openSummaryModal() {
+            const modal = document.getElementById('summaryModal');
+            modal.style.display = 'block';
+        }
 
-        // Function to update summary information
+        function closeSummaryModal() {
+            const modal = document.getElementById('summaryModal');
+            modal.style.display = 'none';
+        }
+
         function updateSummary(data) {
-            const summaryDiv = document.getElementById('summary');
-            summaryDiv.innerHTML = `
-                        <p><strong>First Name:</strong> ${data.firstName}</p>
-                        <p><strong>Last Name:</strong> ${data.lastName}</p>
-                        <p><strong>Age:</strong> ${data.age}</p>
-                    `;
+            const summaryContent = document.getElementById('summary-content');
+            summaryContent.innerHTML = `
+                <h2>Personal Details</h2>
+                <p><strong>First Name:</strong> ${data.firstName}</p>
+                <p><strong>Last Name:</strong> ${data.lastName}</p>
+                <p><strong>Age:</strong> ${data.age}</p>
+                <p><strong>Sex:</strong> ${data.sex}</p>
+                <p><strong>Address:</strong> ${data.address}</p>
+                <p><strong>Phone Number:</strong> ${data.phone}</p>
+                <p><strong>Email Address:</strong> ${data.email}</p>
+            `;
         }
 
-        // Function to update detailed information
-        function updateDetailed(data) {
-            const detailedDiv = document.getElementById('detailed');
-            detailedDiv.innerHTML = `<h3>Detailed Information</h3>`;
-            detailedDiv.innerHTML += `
-                        <p><strong>First Name:</strong> ${data.firstName}</p>
-                        <p><strong>Last Name:</strong> ${data.lastName}</p>
-                        <p><strong>Age:</strong> ${data.age}</p>
-                        <p><strong>Sex:</strong> ${data.sex}</p>
-                        <p><strong>Address:</strong> ${data.address}</p>
-                        <p><strong>Phone:</strong> ${data.phone}</p>
-                        <p><strong>Email:</strong> ${data.email}</p>
-                    `;
+        // Add event listeners for the buttons
+        document.getElementById('summary-button').addEventListener('click', openSummaryModal);
+        document.getElementById('close-summary').addEventListener('click', closeSummaryModal);
+
+        function openUpdateDetailsModal() {
+        const modal = document.getElementById('updateDetailsModal');
+        modal.style.display = 'block';
+        const summaryContent = document.getElementById('summary-content');
+        summaryContent.style.display = 'block';
+    }
+    function updateDetailed(data) {
+    const modal = document.getElementById('personalModal');
+    modal.style.display = 'block';
+    const detailedPopup = document.getElementById('detailed-popup');
+    detailedPopup.innerHTML = `
+        <h3>Detailed Information</h3>
+        <p><strong>First Name:</strong> ${data.firstName}</p>
+        <p><strong>Last Name:</strong> ${data.lastName}</p>
+        <p><strong>Age:</strong> ${data.age}</p>
+        <p><strong>Sex:</strong> ${data.sex.charAt(0).toUpperCase() + data.sex.slice(1)}</p>
+        <p><strong>Address:</strong> ${data.address}</p>
+        <p><strong>Phone Number:</strong> ${data.phone}</p>
+        <p><strong>Email Address:</strong> ${data.email}</p>
+        <button id="confirmBtn" style="display: none;">Confirm</button>
+        <button id="editBtn" style="display: none;">Edit</button>
+    `;
+
+    const editBtn = document.getElementById('editBtn');
+    editBtn.style.display = 'block';
+    editBtn.textContent = 'Edit';
+    editBtn.addEventListener('click', function () {
+        displayEditForm(data);
+    });
+
+    const confirmBtn = document.getElementById('confirmBtn');
+    confirmBtn.style.display = 'block';
+    confirmBtn.textContent = 'Confirm';
+    confirmBtn.addEventListener('click', function () {
+        // Hide the modal after the confirmation
+        modal.style.display = 'none';
+        // Make the summary button appear
+        document.getElementById('summary-button').style.display = 'block';
+    });
+}
+
+
+
+function displayEditForm(data) {
+        const detailedPopup = document.getElementById('detailed-popup');
+        detailedPopup.innerHTML = `
+            <h3>Edit Information</h3>
+            <form id="edit-form">
+                <label for="edit-first-name">First Name:</label>
+                <input type="text" id="edit-first-name" name="edit-first-name" value="${data.firstName}"><br><br>
+                <label for="edit-last-name">Last Name:</label>
+                <input type="text" id="edit-last-name" name="edit-last-name" value="${data.lastName}"><br><br>
+                <label for="edit-age">Age:</label>
+                <input type="number" id="edit-age" name="edit-age" value="${data.age}"><br><br>
+                <label for="edit-sex">Sex:</label>
+                <input type="radio" id="edit-male" name="edit-sex" value="male" ${data.sex === 'male' ? 'checked' : ''}>
+                <label for="edit-male">Male</label>
+                <input type="radio" id="edit-female" name="edit-sex" value="female" ${data.sex === 'female' ? 'checked' : ''}>
+                <label for="edit-female">Female</label><br><br>
+                <label for="edit-address">Address:</label>
+                <input type="text" id="edit-address" name="edit-address" value="${data.address}"><br><br>
+                <label for="edit-phone">Phone Number:</label>
+                <input type="tel" id="edit-phone" name="edit-phone" value="${data.phone}"><br><br>
+                <label for="edit-email">Email Address:</label>
+                <input type="email" id="edit-email" name="edit-email" value="${data.email}"><br><br>
+                <button type="button" onclick="updateFormData()">Update</button>
+                <button onclick="closeUpdateDetailsModal()">Back</button>
+            </form>
+        `;
         }
+        function updateFormData() {
+    const data = JSON.parse(localStorage.getItem('formData'));
+    const updatedData = {
+        firstName: document.getElementById('edit-first-name').value,
+        lastName: document.getElementById('edit-last-name').value,
+        age: document.getElementById('edit-age').value,
+        sex: document.querySelector('input[name="edit-sex"]:checked').value,
+        address: document.getElementById('edit-address').value,
+        phone: document.getElementById('edit-phone').value,
+        email: document.getElementById('edit-email').value,
+    };
 
-        // Add event listener for the "Proceed to Ticket Prices" button
-        document.getElementById('proceed-to-tickets').addEventListener('click', function () {
-            // Navigate to the "ticket_prices.html" page
-            window.location.href = 'prices.html';
-        });
+    localStorage.setItem('formData', JSON.stringify(updatedData));
+    updateSummary(updatedData);
+    updateDetailed(updatedData);
+    closeUpdateDetailsModal();
+}
 
+function closeUpdateDetailsModal() {
+    const modal = document.getElementById('personalModal');
+    modal.style.display = 'none';
+    // Hide the summary button when the details modal is closed
+    document.getElementById('summary-button').style.display = 'none';
+    const storedData = JSON.parse(localStorage.getItem('formData'));
+    updateDetailed(storedData);
+}
+    
+    const backBtn = document.getElementById('backBtn');
+    backBtn.textContent = 'Back';
+    backBtn.addEventListener('click', closeUpdateDetailsModal);
+    
+        
+    
         // After collecting user data and before updating the summary
         // Add data to the storage
         const bookingData = JSON.parse(localStorage.getItem('bookingData')) || [];
         bookingData.push({ ticketType: data.ticketType, sex: data.sex });
         localStorage.setItem('bookingData', JSON.stringify(bookingData));
-    </script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const storedData = JSON.parse(localStorage.getItem('formData'));
+        if (storedData) {
+            // Display the summary button
+            document.getElementById('summary-button').style.display = 'block';
+        }
+    });
+    </script>   
+    
+    
+    
+    
 </body>
 </html>
