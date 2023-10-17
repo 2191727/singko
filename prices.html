@@ -63,7 +63,7 @@
             </div>
         </div>
         <button class="proceed" type="button" onclick="showSummary();">Calculate Order Summary</button>
-        <button class="statistics" type="button" onclick="displayStats()">View Ticket Statistics</button>
+        <button class="statistics" type="button" onclick="readXMLFile();">View Ticket Statistics</button>
     </div>
 
     <div id="myModal" class="modal">
@@ -128,19 +128,6 @@
         }
         function showSummaryModal() {
             var ticketQuantities = document.querySelectorAll(".tickets input");
-            var selectedTickets = [];
-
-            for (var i = 0; i < ticketQuantities.length; i++) {
-                var quantity = parseInt(ticketQuantities[i].value, 10);
-                if (quantity > 0) {
-                    var ticketType = document.getElementById("ticketType" + (i + 1)).textContent;
-                    var ticketPrice = document.getElementById("ticketPrice" + (i + 1)).textContent;
-                    selectedTickets.push({ type: ticketType, price: ticketPrice, quantity: quantity });
-                }
-            }
-
-            localStorage.setItem("selectedTickets", JSON.stringify(selectedTickets));
-
             var totalTickets = 0;
             var totalCost = 0;
 
@@ -177,9 +164,16 @@
                     ticketTypeRectangle.appendChild(label);
                     ticketTypeRectangle.appendChild(priceLabel); // Append the price label
                     summaryContent.appendChild(ticketTypeRectangle);
+                    const ticketData = {
+                        ticketType: ticketTypes[i],
+                        ticketPrice: 'PHP '+ticketPrice.toFixed(2),
+                        ticketQuantity: quantity
+                    };
+                    localStorage.setItem("selectedTickets", JSON.stringify(ticketData));
                 }
 
                 totalCost += quantity * ticketPrices[i];
+                
             }
 
             var totalCostModal = document.getElementById("totalCostModal");
@@ -187,6 +181,8 @@
 
             var modal = document.getElementById("myModal");
             modal.style.display = "block";
+
+            
         }
 
 
@@ -266,95 +262,68 @@
             paymentModal.style.display = "none";
         }
 
-        function displayStats() {
-            if ('showOpenFilePicker' in window) {
+        function readXMLFile() {
+            const fileRead = localStorage.getItem('fileRead');
+
+            if (!fileRead) { 
+                if ('showOpenFilePicker' in window) {
                 window.showOpenFilePicker()
                     .then(function (fileHandles) {
-                        const fileHandle = fileHandles[0];
-                        return fileHandle.getFile();
+                    const fileHandle = fileHandles[0];
+                    return fileHandle.getFile();
                     })
                     .then(function (file) {
-                        return file.text();
+                    return file.text();
                     })
-                    .then(function (data) {
-                        // Parse the XML content
-                        const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(data, 'application/xml');
+                    .then(function (xmlString) {
+                    // Parse the XML content
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                    const users = xmlDoc.querySelectorAll('user');
 
-                        const userData = xmlDoc.querySelectorAll('user');
+                    let usersInfo = [];
 
-                        // Initialize counters for gender and ticket type preferences
-                        let male2DayVipCount = 0;
-                        let male2DayRegularCount = 0;
-                        let male2DayEarlyEntry = 0;
-                        let maleRegularDay1 = 0;
-                        let maleRegularDay2 = 0;
-                        let female2DayVipCount = 0;
-                        let female2DayRegularCount = 0;
-                        let female2DayEarlyEntry = 0;
-                        let femaleRegularDay1 = 0;
-                        let femaleRegularDay2 = 0;
+                    users.forEach(user => {
+                        let personalInfo = user.querySelector('personalInfo');
+                        let ticketInfo = user.querySelector('ticketInfo');
 
-                        for (let user of userData) {
-                            // Extract data from the XML
-                            const sex = user.querySelector("sex").textContent;
-                            const ticketType = user.querySelector("type").textContent;
+                        let userObject = {
+                        firstName: personalInfo.querySelector('firstName').textContent,
+                        lastName: personalInfo.querySelector('lastName').textContent,
+                        age: personalInfo.querySelector('age').textContent,
+                        sex: personalInfo.querySelector('sex').textContent,
+                        address: personalInfo.querySelector('address').textContent,
+                        phone: personalInfo.querySelector('phone').textContent,
+                        email: personalInfo.querySelector('email').textContent,
+                        ticketType: ticketInfo.querySelector('type').textContent,
+                        ticketPrice: ticketInfo.querySelector('price').textContent,
+                        ticketQuantity: ticketInfo.querySelector('quantity').textContent,
+                        };
 
-                            // Count occurrences of each combination
-                            if (sex === "male") {
-                                if (ticketType === "2-DAY Star Wanderer (VIP)") {
-                                    male2DayVipCount++;
-                                } else if (ticketType === "2-DAY Regular Wanderer") {
-                                    male2DayRegularCount++;
-                                } else if (ticketType === "2-DAY Early Entry") {
-                                    male2DayEarlyEntry++;
-                                } else if (ticketType === "DAY 1 - Regular Wanderer") {
-                                    maleRegularDay1++;
-                                } else if (ticketType === "DAY 2 - Regular Wanderer") {
-                                    maleRegularDay2++;
-                                } 
-                            } else if (sex === "female") {
-                                if (ticketType === "2-DAY Star Wanderer (VIP)") {
-                                    female2DayVipCount++;
-                                } else if (ticketType === "2-DAY Regular Wanderer") {
-                                    female2DayRegularCount++;
-                                } else if (ticketType === "2-DAY Early Entry") {
-                                    female2DayEarlyEntry++;
-                                } else if (ticketType === "DAY 1 - Regular Wanderer") {
-                                    femaleRegularDay1++;
-                                } else if (ticketType === "DAY 2 - Regular Wanderer") {
-                                    femaleRegularDay2++;
-                                } 
-                            } 
-                        }
+                        usersInfo.push(userObject);
+                    });
 
-                        // Calculate the total number of users
-                        const totalUsers = userData.length;
-
-                        // Display the gender and ticket type preferences
-                        console.log("Gender and Ticket Type Preferences:");
-                        console.log("Male Preferences:");
-                        console.log(`- 2-DAY Star Wanderer (VIP): ${((male2DayVipCount / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- 2-DAY Regular Wanderer: ${((male2DayRegularCount / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- 2-DAY Early Entry: ${((male2DayEarlyEntry / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- DAY 1 - Regular Wanderer: ${((maleRegularDay1 / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- DAY 2 - Regular Wanderer: ${((maleRegularDay2 / totalUsers) * 100).toFixed(2)}%`);
-                
-                        console.log("Female Preferences:");
-                        console.log(`- 2-DAY Star Wanderer (VIP): ${((female2DayVipCount / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- 2-DAY Regular Wanderer: ${((female2DayRegularCount / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- 2-DAY Early Entry: ${((female2DayEarlyEntry / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- DAY 1 - Regular Wanderer: ${((femaleRegularDay1 / totalUsers) * 100).toFixed(2)}%`);
-                        console.log(`- DAY 2 - Regular Wanderer: ${((femaleRegularDay2 / totalUsers) * 100).toFixed(2)}%`);
-
+                    // Store the extracted data in local storage
+                    localStorage.setItem('usersInfo', JSON.stringify(usersInfo));
+                    localStorage.setItem('fileRead', 'true');
+                    navigateToStatsPage();
                     })
                     .catch(error => console.error("Error loading XML:", error));
-            } else {
+                } else {
                 console.error('showOpenFilePicker is not supported in this browser.');
+                }
+            }
+            if(fileRead){
+                navigateToStatsPage();
             }
         }
+        
+        function navigateToStatsPage() {
+            // Redirect to the stats.html page
+            window.location.href = 'stats.html';
+        }
 
-
+        
 
     </script>
 

@@ -2,8 +2,8 @@
 <statistics>
     <user>
         <personalInfo>
-            <firstName>niko</firstName>
-            <lastName>douglas</lastName>
+            <firstName>Niko</firstName>
+            <lastName>Douglas</lastName>
             <age>7</age>
             <sex>male</sex>
             <address>Amparo Heights, Baguio City</address>
@@ -20,8 +20,8 @@
     </user>
     <user>
         <personalInfo>
-            <firstName>alice</firstName>
-            <lastName>smith</lastName>
+            <firstName>Alice</firstName>
+            <lastName>Smith</lastName>
             <age>25</age>
             <sex>female</sex>
             <address>123 Elm Street</address>
@@ -31,15 +31,15 @@
         <ticketInfo>
             <ticket>
                 <type>DAY 2 - Regular Wanderer</type>
-                <price>PHP 8,000.00</price>
+                <price>PHP 10,800.00</price>
                 <quantity>2</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>john</firstName>
-            <lastName>wilson</lastName>
+            <firstName>John</firstName>
+            <lastName>Wilson</lastName>
             <age>42</age>
             <sex>male</sex>
             <address>456 Oak Lane</address>
@@ -49,15 +49,15 @@
         <ticketInfo>
             <ticket>
                 <type>2-DAY Star Wanderer (VIP)</type>
-                <price>PHP 15,000.00</price>
+                <price>PHP 13,000.00</price>
                 <quantity>1</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>lisa</firstName>
-            <lastName>martinez</lastName>
+            <firstName>Lisa</firstName>
+            <lastName>Martinez</lastName>
             <age>35</age>
             <sex>female</sex>
             <address>789 Pine Street</address>
@@ -67,15 +67,15 @@
         <ticketInfo>
             <ticket>
                 <type>DAY 1 - Regular Wanderer</type>
-                <price>PHP 7,500.00</price>
+                <price>PHP 5,400.00</price>
                 <quantity>2</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>alex</firstName>
-            <lastName>thomas</lastName>
+            <firstName>Alex</firstName>
+            <lastName>Thomas</lastName>
             <age>28</age>
             <sex>male</sex>
             <address>987 Maple Avenue</address>
@@ -85,15 +85,15 @@
         <ticketInfo>
             <ticket>
                 <type>2-DAY Star Wanderer (VIP)</type>
-                <price>PHP 14,000.00</price>
+                <price>PHP 13,000.00</price>
                 <quantity>1</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>sophia</firstName>
-            <lastName>white</lastName>
+            <firstName>Sophia</firstName>
+            <lastName>White</lastName>
             <age>18</age>
             <sex>female</sex>
             <address>234 Birch Road</address>
@@ -103,15 +103,15 @@
         <ticketInfo>
             <ticket>
                 <type>DAY 1 - Regular Wanderer</type>
-                <price>PHP 6,500.00</price>
+                <price>PHP 10,800.00</price>
                 <quantity>2</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>david</firstName>
-            <lastName>lee</lastName>
+            <firstName>David</firstName>
+            <lastName>Lee</lastName>
             <age>53</age>
             <sex>male</sex>
             <address>567 Cedar Street</address>
@@ -121,15 +121,15 @@
         <ticketInfo>
             <ticket>
                 <type>2-DAY Early Entry</type>
-                <price>PHP 16,000.00</price>
+                <price>PHP 6,000.00</price>
                 <quantity>1</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>emily</firstName>
-            <lastName>hall</lastName>
+            <firstName>Emily</firstName>
+            <lastName>Hall</lastName>
             <age>29</age>
             <sex>female</sex>
             <address>876 Walnut Drive</address>
@@ -139,15 +139,15 @@
         <ticketInfo>
             <ticket>
                 <type>DAY 1 - Regular Wanderer</type>
-                <price>PHP 8,500.00</price>
+                <price>PHP 5,400.00</price>
                 <quantity>2</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>michael</firstName>
-            <lastName>roberts</lastName>
+            <firstName>Michael</firstName>
+            <lastName>Roberts</lastName>
             <age>45</age>
             <sex>male</sex>
             <address>123 Redwood Lane</address>
@@ -157,15 +157,15 @@
         <ticketInfo>
             <ticket>
                 <type>2-DAY Regular Wanderer</type>
-                <price>PHP 17,000.00</price>
+                <price>PHP 7,000.00</price>
                 <quantity>1</quantity>
             </ticket>
         </ticketInfo>
     </user>
     <user>
         <personalInfo>
-            <firstName>sarah</firstName>
-            <lastName>clark</lastName>
+            <firstName>Sarah</firstName>
+            <lastName>Clark</lastName>
             <age>22</age>
             <sex>female</sex>
             <address>345 Spruce Street</address>
@@ -175,7 +175,7 @@
         <ticketInfo>
             <ticket>
                 <type>DAY 2 - Regular Wanderer</type>
-                <price>PHP 9,000.00</price>
+                <price>PHP 10,800.00</price>
                 <quantity>2</quantity>
             </ticket>
         </ticketInfo>
