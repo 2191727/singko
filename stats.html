@@ -146,13 +146,21 @@
         // Fetch XML data from the file in a different folder
         // Retrieve XML data from local storage
             const xmlString = localStorage.getItem('XML/usersInfo');
+            console.log(xmlString);
 
 
-            // Parse the JSON string to an object
-            const usersInfo = JSON.parse(usersInfoString);
+            // Parse the XML string to an XML document
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
 
-            // Extract gender information from usersInfo
-            const genders = usersInfo.map(user => user.personalInfo.sex.toLowerCase());
+            if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+            console.error('XML Parsing Error:', xmlDoc.getElementsByTagName('parsererror')[0].innerHTML);
+            }
+
+            // Extract gender information from XML
+            const users = xmlDoc.getElementsByTagName('user');
+            const genders = Array.from(users).map(user => user.querySelector('sex').textContent.toLowerCase());
+            console.log(genders);
 
                     // Count occurrences of each gender
                     const genderCounts = genders.reduce((counts, gender) => {
