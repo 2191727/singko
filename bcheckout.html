@@ -116,6 +116,7 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="booking.html">Book</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="stats.html">Statistics</a></li>
             </ul>
         </nav>
     </header>
@@ -306,6 +307,14 @@
                 }
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const submitPaymentButton = document.getElementById('submit-payment');
+
+    submitPaymentButton.addEventListener('click', function () {
+        window.location.href = 'index.html'; // Redirect to payment.html
+    });
+});
     </script>
     
     
