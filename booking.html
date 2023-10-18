@@ -1,277 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Offline Data Processing</title>
-    <link rel="stylesheet" href="./Style/style.css" />
-
-    <style>
-        body {
-            font-family: Orbitron;
-            background-color: #FFFFFF;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-image: url('images/mf1.jpeg');
-            margin: 0;
-            padding: 0;
-        }
-
-        p {
-            color: aliceblue;
-        }
-
-        header {
-            background-image: url('images/mf1.jpeg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-        }
-
-        #ham-menu {
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #home {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        #logo {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-            #logo img {
-                max-width: 100%;
-            }
-
-        .container {
-            background: url('images/mf1.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            background-color: rgba(48, 13, 47, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-            .container h2 {
-                text-align: center;
-                color: aliceblue;
-            }
-
-            .container form {
-                text-align: left;
-                color: white;
-            }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-            .form-group label {
-                display: block;
-                color: white;
-                font-family: Orbitron, sans-serif;
-            }
-
-            .form-group input {
-                width: 95%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                color: #000;
-            }
-
-            .form-group button {
-                width: 100%;
-                padding: 10px;
-                background: #550091;
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-        .summary {
-            background-color: rgba(255, 255, 255, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .detailed {
-            background-color: rgba(255, 255, 255, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            margin: 20px auto;
-            text-align: center;
-        }
-        
-        #summary-button {
-                width: 100%;
-                padding: 10px;
-                background: #550091;
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-        }
-
-    .button-container {
-        align-items: center;
-        text-align: center;
-        margin-top: 20px; /* Adjust the top margin as needed */
-        }
-
-    .button-container button {
-        text-align: center;
-        align-items: center;
-        background-color: #550091; /* Green background color */
-        color: white; /* White text color */
-        padding: 10px 20px; /* Padding around the text */
-        border: none; /* No border */
-        cursor: pointer; /* Cursor style on hover */
-        margin-top: 10px; /* Some space from the previous element */
-        }
-
-    .button-container button:hover {
-        background-color: #550091; 
-        text-align: center;
-        align-items: center;
-        }
-
-    </style>
+    <title>Singko Booking</title>
+    <link rel="stylesheet" href="Style/style.css"/>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <i class="fas fa-bars" id="ham-menu"></i>
-            <ul class="all-links">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="booking.html">Book</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="stats.html">Statistics</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="homepage">
+        <header>
+            <!-- ======= Navigation and Button ======= -->
+            <nav class="navbar">
+                <ul class="all-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="home">
-        <a href="#home" id="logo">
-            <img src="bg3.png" alt="logo">
-        </a>
-    </section>
+         <!-- ======= Personal Details ======= -->
+        <div class="container">
+            <h2>PERSONAL DETAILS</h2>
+            <p>Kindly complete the following information before proceeding to the reservation page.</p>
+            <form id="data-form">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <input type="radio" id="male" name="sex" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="sex" value="female">
+                    <label for="female">Female</label>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Proceed</button>
+                </div>
+            </form>
 
-    <div class="container">
-        <h2>PERSONAL DETAILS</h2>
-        <p>Kindly complete the following information before proceeding to the reservation page.</p>
-        <form id="data-form">
+            <!-- Add a button to proceed to ticket prices -->
             <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                <button type="button" id="proceed-to-tickets" disabled>Proceed to Ticket Prices</button>
             </div>
             <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <button id="summary-button" style="display: none;" onclick="openSummaryModal()">
+                    Personal Details
+                </button>
+                <div id="summaryModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeSummaryModal()">&times;</span>
+                        <div id="summary-content" class="summary">
+                            <h2>Summary</h2>
+                            <div id="summary"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
-            </div>
-            <div class="form-group">
-                <label for="sex">Sex:</label>
-                <input type="radio" id="male" name="sex" value="male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="sex" value="female">
-                <label for="female">Female</label>
-            </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Proceed</button>
-            </div>
-        </form>
+            <div id="updateDetailsModal" class="modal">
+                <div id="updateDetailsModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Update Details</h2>
+                        <form id="update-form">
+                            <!-- Add your form fields for updating details here -->
+                            <!-- Example: -->
+                            <label for="update-first-name">First Name:</label>
+                            <input type="text" id="update-first-name" name="update-first-name"><br><br>
 
-        <!-- Add a button to proceed to ticket prices -->
-        <div class="form-group">
-            <button type="button" id="proceed-to-tickets" disabled>Proceed to Ticket Prices</button>
-        </div>
-    <div class="form-group">
-    <button id="summary-button" style="display: none;" onclick="openSummaryModal()">
-        Personal Details
-    </button>
-    <div id="summaryModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeSummaryModal()">&times;</span>
-            <div id="summary-content" class="summary">
-                <h2>Summary</h2>
-                <div id="summary"></div>
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="updateDetailsModal" class="modal">
-        <div id="updateDetailsModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Update Details</h2>
-                <form id="update-form">
-                    <!-- Add your form fields for updating details here -->
-                    <!-- Example: -->
-                    <label for="update-first-name">First Name:</label>
-                    <input type="text" id="update-first-name" name="update-first-name"><br><br>
-        
-                    <label for="update-last-name">Last Name:</label>
-                    <input type="text" id="update-last-name" name="update-last-name"><br><br>
-        
-                    <label for="update-age">Age:</label>
-                    <input type="number" id="update-age" name="update-age"><br><br>
-        
-                    <!-- Add other fields as necessary -->
-        
-                    <button id ="summary-button" type="submit">Update</button>
-                </form>
-            </div>
-        </div>
-    </div>
+                            <label for="update-last-name">Last Name:</label>
+                            <input type="text" id="update-last-name" name="update-last-name"><br><br>
 
-    <div id="personalModal" class="personal-modal">
-        <div class="personal-content">
-            <span class="close">&times;</span>
-            <div id="detailed-popup"></div>
+                            <label for="update-age">Age:</label>
+                            <input type="number" id="update-age" name="update-age"><br><br>
+
+                            <!-- Add other fields as necessary -->
+
+                            <button id="summary-button" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="personalModal" class="personal-modal">
+                <div class="personal-content">
+                    <span class="close">&times;</span>
+                    <div id="detailed-popup"></div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
     <script>
         // Disable the "Proceed to Ticket Prices" button by default
         document.getElementById('proceed-to-tickets').disabled = true;
-        
-    
         document.getElementById('data-form').addEventListener('submit', function (event) {
             event.preventDefault();
-    
             // Collect form data
             const firstName = document.getElementById('first-name').value;
             const lastName = document.getElementById('last-name').value;
@@ -280,52 +128,44 @@
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
-
-     // Validation for First Name
-    if (firstName.trim() === '') {
-    alert('Please enter your first name.');
-    // Prevent form submission
-    return;
-}
-
-// Validation for Last Name
-    if (lastName.trim() === '') {
-    alert('Please enter your last name.');
-    return;
-}
-
-// Validation for Age
-    if (age.trim() === '' || isNaN(age) || parseInt(age) <= 0) {
-    alert('Please enter a valid age.');
-    return;
-}
-
-// Validation for Sex (element with id="male" and id="female" for radio buttons)
-    if (!sex) {
-    alert('Please select your gender.');
-    return;
-}
-
-// Validation for Address
-    if (address.trim() === '') {
-    alert('Please enter your address.');
-    return;
-}
-
-// Validation for Phone Number (11-digit phone number is expected)
-    const phoneRegex = /^\d{11}$/;
-    if (!phone.match(phoneRegex)) {
-    alert('Please enter a valid 11-digit phone number.');
-    return;
-}
-
-// Validation for Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.match(emailRegex)) {
-    alert('Please enter a valid email address.');
-    return;
-}
-    
+            // Validation for First Name
+            if (firstName.trim() === '') {
+                alert('Please enter your first name.');
+                // Prevent form submission
+                return;
+            }
+            // Validation for Last Name
+            if (lastName.trim() === '') {
+                alert('Please enter your last name.');
+                return;
+            }
+            // Validation for Age
+            if (age.trim() === '' || isNaN(age) || parseInt(age) <= 0) {
+                alert('Please enter a valid age.');
+                return;
+            }
+            // Validation for Sex (element with id="male" and id="female" for radio buttons)
+            if (!sex) {
+                alert('Please select your gender.');
+                return;
+            }
+            // Validation for Address
+            if (address.trim() === '') {
+                alert('Please enter your address.');
+                return;
+            }
+            // Validation for Phone Number (11-digit phone number is expected)
+            const phoneRegex = /^\d{11}$/;
+            if (!phone.match(phoneRegex)) {
+                alert('Please enter a valid 11-digit phone number.');
+                return;
+            }
+            // Validation for Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.match(emailRegex)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
             // Perform offline processing
             const data = {
                 firstName,
@@ -336,25 +176,21 @@
                 phone,
                 email,
             };
-    
             // Save data in local storage
             localStorage.setItem('formData', JSON.stringify(data));
-    
             // Update summary and detailed information
             updateSummary(data);
             updateDetailed(data);
-    
             // Enable the "Proceed to Ticket Prices" button
             document.getElementById('proceed-to-tickets').disabled = false;
             document.getElementById('proceed-to-tickets').addEventListener('click', function () {
-             // Navigate to the "ticket_prices.html" page
-        window.location.href = 'prices.html';
-        });
-    
+                // Navigate to the "ticket_prices.html" page
+                window.location.href = 'prices.html';
+            });
             // Clear the form
             document.getElementById('data-form').reset();
         });
-    
+
         function openSummaryModal() {
             const modal = document.getElementById('summaryModal');
             modal.style.display = 'block';
@@ -384,16 +220,16 @@
         document.getElementById('close-summary').addEventListener('click', closeSummaryModal);
 
         function openUpdateDetailsModal() {
-        const modal = document.getElementById('updateDetailsModal');
-        modal.style.display = 'block';
-        const summaryContent = document.getElementById('summary-content');
-        summaryContent.style.display = 'block';
-    }
-    function updateDetailed(data) {
-    const modal = document.getElementById('personalModal');
-    modal.style.display = 'block';
-    const detailedPopup = document.getElementById('detailed-popup');
-    detailedPopup.innerHTML = `
+            const modal = document.getElementById('updateDetailsModal');
+            modal.style.display = 'block';
+            const summaryContent = document.getElementById('summary-content');
+            summaryContent.style.display = 'block';
+        }
+        function updateDetailed(data) {
+            const modal = document.getElementById('personalModal');
+            modal.style.display = 'block';
+            const detailedPopup = document.getElementById('detailed-popup');
+            detailedPopup.innerHTML = `
         <h3>Detailed Information</h3>
         <p><strong>First Name:</strong> ${data.firstName}</p><br>
         <p><strong>Last Name:</strong> ${data.lastName}</p><br>
@@ -408,29 +244,27 @@
         </div>
     `;
 
-    const editBtn = document.getElementById('editBtn');
-    editBtn.style.display = 'block';
-    editBtn.textContent = 'Edit';
-    editBtn.addEventListener('click', function () {
-        displayEditForm(data);
-    });
+            const editBtn = document.getElementById('editBtn');
+            editBtn.style.display = 'block';
+            editBtn.textContent = 'Edit';
+            editBtn.addEventListener('click', function () {
+                displayEditForm(data);
+            });
 
-    const confirmBtn = document.getElementById('confirmBtn');
-    confirmBtn.style.display = 'block';
-    confirmBtn.textContent = 'Confirm';
-    confirmBtn.addEventListener('click', function () {
-        // Hide the modal after the confirmation
-        modal.style.display = 'none';
-        // Make the summary button appear
-        document.getElementById('summary-button').style.display = 'block';
-    });
-}
+            const confirmBtn = document.getElementById('confirmBtn');
+            confirmBtn.style.display = 'block';
+            confirmBtn.textContent = 'Confirm';
+            confirmBtn.addEventListener('click', function () {
+                // Hide the modal after the confirmation
+                modal.style.display = 'none';
+                // Make the summary button appear
+                document.getElementById('summary-button').style.display = 'block';
+            });
+        }
 
-
-
-function displayEditForm(data) {
-        const detailedPopup = document.getElementById('detailed-popup');
-        detailedPopup.innerHTML = `
+        function displayEditForm(data) {
+            const detailedPopup = document.getElementById('detailed-popup');
+            detailedPopup.innerHTML = `
             <h3>Edit Information</h3>
             <form id="edit-form">
                 <label for="edit-first-name">First Name:</label>
@@ -457,55 +291,53 @@ function displayEditForm(data) {
             </form>
         `;
         }
+
         function updateFormData() {
-    const data = JSON.parse(localStorage.getItem('formData'));
-    const updatedData = {
-        firstName: document.getElementById('edit-first-name').value,
-        lastName: document.getElementById('edit-last-name').value,
-        age: document.getElementById('edit-age').value,
-        sex: document.querySelector('input[name="edit-sex"]:checked').value,
-        address: document.getElementById('edit-address').value,
-        phone: document.getElementById('edit-phone').value,
-        email: document.getElementById('edit-email').value,
-    };
+            const data = JSON.parse(localStorage.getItem('formData'));
+            const updatedData = {
+                firstName: document.getElementById('edit-first-name').value,
+                lastName: document.getElementById('edit-last-name').value,
+                age: document.getElementById('edit-age').value,
+                sex: document.querySelector('input[name="edit-sex"]:checked').value,
+                address: document.getElementById('edit-address').value,
+                phone: document.getElementById('edit-phone').value,
+                email: document.getElementById('edit-email').value,
+            };
 
-    localStorage.setItem('formData', JSON.stringify(updatedData));
-    updateSummary(updatedData);
-    updateDetailed(updatedData);
-    closeUpdateDetailsModal();
-}
+            localStorage.setItem('formData', JSON.stringify(updatedData));
+            updateSummary(updatedData);
+            updateDetailed(updatedData);
+            closeUpdateDetailsModal();
+        }
 
-function closeUpdateDetailsModal() {
-    const modal = document.getElementById('personalModal');
-    modal.style.display = 'none';
-    // Hide the summary button when the details modal is closed
-    document.getElementById('summary-button').style.display = 'none';
-    const storedData = JSON.parse(localStorage.getItem('formData'));
-    updateDetailed(storedData);
-}
-    
-    const backBtn = document.getElementById('backBtn');
-    backBtn.textContent = 'Back';
-    backBtn.addEventListener('click', closeUpdateDetailsModal);
-    
-        
-    
+        function closeUpdateDetailsModal() {
+            const modal = document.getElementById('personalModal');
+            modal.style.display = 'none';
+            // Hide the summary button when the details modal is closed
+            document.getElementById('summary-button').style.display = 'none';
+            const storedData = JSON.parse(localStorage.getItem('formData'));
+            updateDetailed(storedData);
+        }
+
+        const backBtn = document.getElementById('backBtn');
+        backBtn.textContent = 'Back';
+        backBtn.addEventListener('click', closeUpdateDetailsModal);
+
+
+
         // After collecting user data and before updating the summary
         // Add data to the storage
         const bookingData = JSON.parse(localStorage.getItem('bookingData')) || [];
         bookingData.push({ ticketType: data.ticketType, sex: data.sex });
         localStorage.setItem('bookingData', JSON.stringify(bookingData));
         document.addEventListener('DOMContentLoaded', function () {
-        const storedData = JSON.parse(localStorage.getItem('formData'));
-        if (storedData) {
-            // Display the summary button
-            document.getElementById('summary-button').style.display = 'block';
-        }
-    });
-    </script>   
-    
-    
-    
-    
+            const storedData = JSON.parse(localStorage.getItem('formData'));
+            if (storedData) {
+                // Display the summary button
+                document.getElementById('summary-button').style.display = 'block';
+            }
+        });
+    </script>
+
 </body>
 </html>
