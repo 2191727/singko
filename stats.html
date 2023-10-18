@@ -86,11 +86,16 @@
     <div id="summaryModal" class="modal">
         <div class="modal-content">
             <div id="summary-content" class="summary">
-                <h2>Age Group Statistics</h2>
-                <p>The age group with the highest number of attendees is the <span id="highestAgeGroup">[Age Group]</span> age group, which comprises a total of <span id="highestCount">[Count]</span> individuals.</p>
+                <h2>Summary Statistics</h2>
+                <p>The age group with the highest number of attendees is the <span id="highestAgeGroup">[Age Group]</span> age group, which comprises a total of <span id="highestCount">[Count]</span> individuals.</p><br>
+                <div>
+                    <p>Number of Males and Females who bought tickets:</p>
+                    <div>Male Count: <span id="male-count"></span></div>
+                    <div>Female Count: <span id="female-count"></span></div>
             </div>
         </div>
     </div>
+
     
     <script>
         if (localStorage.getItem('usersInfo')) {
@@ -136,6 +141,42 @@
                 console.log("No age group data available.");
             }
         }
+
+
+    // Fetch XML data from the file in a different folder
+    fetch('XML/userinfo.xml')
+                .then(response => response.text())
+                .then(xmlString => {
+                    // Parse the XML data
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+                     // Count males and females
+                     const users = xmlDoc.getElementsByTagName('user');
+                        let maleCount = 0;
+                        let femaleCount = 0;
+
+                for (let i = 0; i < users.length; i++) {
+                    const sex = users[i].querySelector('sex').textContent.toLowerCase();
+                if (sex === 'male') {
+                maleCount++;
+                } else if (sex === 'female') {
+                femaleCount++;
+                }
+        }
+
+                // Update HTML elements with the counts
+                const maleCountElement = document.getElementById('male-count');
+                maleCountElement.textContent = maleCount;
+
+                const femaleCountElement = document.getElementById('female-count');
+                femaleCountElement.textContent = femaleCount;
+         })
+        .catch(error => {
+            console.error('Error fetching or parsing XML data:', error);
+        });
+
+
     </script>
     
 </body>
