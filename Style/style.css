@@ -1064,6 +1064,69 @@ header {
 
 
 /* ----------------------------------- GCASH CHECKOUT -----------------------------------*/
+.gcash-container {
+    background-color: rgba(48, 13, 47, 0.7);
+    /* Darker transparency */
+    padding: 20px;
+    border-radius: 10px;
+    width: 410px;
+    /* Increase the width */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    text-align: center;
+    /* Center the content inside the container */
+    margin-top: 90px;
+}
+
+.gcash-container h1 {
+    text-align: center;
+    color: aliceblue;
+    font-family: orb-blk;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.gcash-container h4 {
+    text-align: left;
+    color: aliceblue;
+}
+
+.gcash-container form {
+    text-align: left;
+    color: white;
+}
+
+.gform-group {
+    margin-bottom: 20px;
+}
+
+.gform-group label {
+    display: block;
+    color: white;
+    /* Label text color */
+    font-family: Orbitron, sans-serif;
+    /* Font family Orbitron */
+}
+
+.gform-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+    /* Input text color */
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background: #060606;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .gcheckout .order-summary {
     position: absolute;
     top: 172px;
