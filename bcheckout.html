@@ -213,6 +213,28 @@
                 window.location.href = 'index.html'; // Redirect to payment.html
             });
         });
+
+        function updateUsersInfo() {
+            const formData = JSON.parse(localStorage.getItem('formData')) || {};
+            const selectedTickets = JSON.parse(localStorage.getItem('selectedTickets')) || {};
+
+            const userInfo = {
+                ...formData,
+                ...selectedTickets
+            };
+
+            console.log(userInfo);
+
+            const updatedUsersInfo = JSON.parse(localStorage.getItem('usersInfo')) || [];
+
+            console.log(updatedUsersInfo);
+
+            updatedUsersInfo.push(userInfo);
+
+            localStorage.setItem('usersInfo', JSON.stringify(updatedUsersInfo));
+        }
+
+        document.getElementById('submit-payment').addEventListener('click', updateUsersInfo);
     </script>
 
 

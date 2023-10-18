@@ -98,19 +98,20 @@
 
     
     <script>
-        if (localStorage.getItem('XML/usersInfo')) {
+        if (localStorage.getItem('usersInfo')) {
             const usersInfo = JSON.parse(localStorage.getItem('usersInfo'));
-    
             const ageGroups = {
                 '0-17': 0,
                 '18-30': 0,
                 '31-45': 0,
                 '46+': 0,
             };
-    
+            let maleCount = 0;
+            let femaleCount = 0;
+
             for (let user of usersInfo) {
                 const age = parseInt(user.age);
-    
+
                 if (age >= 0 && age <= 17) {
                     ageGroups['0-17']++;
                 } else if (age >= 18 && age <= 30) {
@@ -120,62 +121,40 @@
                 } else {
                     ageGroups['46+']++;
                 }
-            }
-    
-            let highestAgeGroup = null;
-            let highestCount = 0;
-    
-            for (const group in ageGroups) {
-                if (ageGroups[group] > highestCount) {
-                    highestAgeGroup = group;
-                    highestCount = ageGroups[group];
+
+                if (user.sex === 'male') {
+                    maleCount++;
+                } else if (user.sex === 'female') {
+                    femaleCount++;
                 }
             }
-    
-            if (highestAgeGroup !== null) {
+
+            let highestAgeGroups = [];
+            let highestCount = 0;
+
+            for (const group in ageGroups) {
+                if (ageGroups[group] > highestCount) {
+                    highestAgeGroups = [group];
+                    highestCount = ageGroups[group];
+                } else if (ageGroups[group] === highestCount) {
+                    highestAgeGroups.push(group);
+                }
+            }
+
+            if (highestAgeGroups.length > 0) {
                 const highestAgeGroupElement = document.getElementById('highestAgeGroup');
                 const highestCountElement = document.getElementById('highestCount');
-                highestAgeGroupElement.textContent = highestAgeGroup;
+                highestAgeGroupElement.textContent = highestAgeGroups.join(', ');
                 highestCountElement.textContent = highestCount;
             } else {
                 console.log("No age group data available.");
             }
-        }
 
-
-        // Fetch XML data from the file in a different folder
-        // Retrieve XML data from local storage
-            const xmlString = localStorage.getItem('XML/usersInfo');
-            console.log(xmlString);
-
-
-            // Parse the XML string to an XML document
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-
-            if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
-            console.error('XML Parsing Error:', xmlDoc.getElementsByTagName('parsererror')[0].innerHTML);
-            }
-
-            // Extract gender information from XML
-            const users = xmlDoc.getElementsByTagName('user');
-            const genders = Array.from(users).map(user => user.querySelector('sex').textContent.toLowerCase());
-            console.log(genders);
-
-                    // Count occurrences of each gender
-                    const genderCounts = genders.reduce((counts, gender) => {
-                        counts[gender] = (counts[gender] || 0) + 1;
-                    return counts;
-                    }, {});
-
-            // Update HTML elements with gender counts
             const maleCountElement = document.getElementById('male-count');
             const femaleCountElement = document.getElementById('female-count');
-
-            maleCountElement.textContent = genderCounts['male'] || 0;
-            femaleCountElement.textContent = genderCounts['female'] || 0;
-    
-
+            maleCountElement.textContent = maleCount;
+            femaleCountElement.textContent = femaleCount;
+        }
     </script>
     
 </body>
