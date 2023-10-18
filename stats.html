@@ -98,7 +98,7 @@
 
     
     <script>
-        if (localStorage.getItem('usersInfo')) {
+        if (localStorage.getItem('XML/usersInfo')) {
             const usersInfo = JSON.parse(localStorage.getItem('usersInfo'));
     
             const ageGroups = {
@@ -143,39 +143,30 @@
         }
 
 
-    // Fetch XML data from the file in a different folder
-    fetch('XML/userinfo.xml')
-                .then(response => response.text())
-                .then(xmlString => {
-                    // Parse the XML data
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+        // Fetch XML data from the file in a different folder
+        // Retrieve XML data from local storage
+            const xmlString = localStorage.getItem('XML/usersInfo');
 
-                     // Count males and females
-                     const users = xmlDoc.getElementsByTagName('user');
-                        let maleCount = 0;
-                        let femaleCount = 0;
 
-                for (let i = 0; i < users.length; i++) {
-                    const sex = users[i].querySelector('sex').textContent.toLowerCase();
-                if (sex === 'male') {
-                maleCount++;
-                } else if (sex === 'female') {
-                femaleCount++;
-                }
-        }
+            // Parse the JSON string to an object
+            const usersInfo = JSON.parse(usersInfoString);
 
-                // Update HTML elements with the counts
-                const maleCountElement = document.getElementById('male-count');
-                maleCountElement.textContent = maleCount;
+            // Extract gender information from usersInfo
+            const genders = usersInfo.map(user => user.personalInfo.sex.toLowerCase());
 
-                const femaleCountElement = document.getElementById('female-count');
-                femaleCountElement.textContent = femaleCount;
-         })
-        .catch(error => {
-            console.error('Error fetching or parsing XML data:', error);
-        });
+                    // Count occurrences of each gender
+                    const genderCounts = genders.reduce((counts, gender) => {
+                        counts[gender] = (counts[gender] || 0) + 1;
+                    return counts;
+                    }, {});
 
+            // Update HTML elements with gender counts
+            const maleCountElement = document.getElementById('male-count');
+            const femaleCountElement = document.getElementById('female-count');
+
+            maleCountElement.textContent = genderCounts['male'] || 0;
+            femaleCountElement.textContent = genderCounts['female'] || 0;
+    
 
     </script>
     
