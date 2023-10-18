@@ -1,226 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <link rel="stylesheet" href=".//Style/style.css" />
-    <style>
-        body {
-            font-family: Orbitron;
-            background-color: #FFFFFF;
-            background-size: cover; /* Adjust as needed: cover, contain, auto, etc. */
-            background-repeat: no-repeat; /* Set to 'repeat' if needed */
-            background-image: url('images/mf1.jpeg'); /* Replace 'your-image-url.jpg' with your image URL */
-            margin: 0;
-            padding: 0;
-        }
-
-        p {
-            color: aliceblue;
-        }
-
-        header {
-            background-image: url('images/mf1.jpeg'); /* Replace 'your-image-url.jpg' with your image URL */
-            background-size: cover; /* Adjust as needed: cover, contain, auto, etc. */
-            background-repeat: no-repeat; /* Set to 'repeat' if needed */
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-        }
-
-
-        #ham-menu {
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #home {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        #logo {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-            #logo img {
-                max-width: 100%;
-            }
-
-        .container {
-            background: url('your-image-url.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background-color: rgba(48, 13, 47, 0.7); /* Darker transparency */
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px; /* Increase the width */
-            margin: 0 auto; /* Center the container horizontally */
-            text-align: center; /* Center the content inside the container */
-        }
-
-            .container h1 {
-                text-align: center;
-                color: aliceblue;
-            }
-
-            .container h4 {
-                text-align: left;
-                color: aliceblue;
-            }
-
-            .container form {
-                text-align: left;
-                color: white;
-            }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-            .form-group label {
-                display: block;
-                color: white; /* Label text color */
-                font-family: Orbitron, sans-serif; /* Font family Orbitron */
-            }
-
-            .form-group input {
-                width: 95%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                color: #000; /* Input text color */
-            }
-
-            .form-group button {
-                width: 100%;
-                padding: 10px;
-                background: #060606;
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-    </style>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="Style/style.css" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <i class="fas fa-bars" id="ham-menu"></i>
-            <ul class="all-links">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="booking.html">Book</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="stats.html">Statistics</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="homepage">
+        <header>
+            <!-- ======= Navigation and Button ======= -->
+            <nav class="navbar">
+                <ul class="all-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="booking.html">Book</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="home">
-        <a href="#home" id="logo">
-            <img src="bg3.png" alt="logo">
-        </a>
-    </section>
+        <!-- ======= Bank Payment Details ======= -->
+        <div class="bank-container">
+            <h1>Bank Payment</h1>
+            <br>
+            <form id="bank-payment-form">
+                <div class="bform-group">
+                    <label for="card-name">Cardhholder's Name</label>
+                    <input type="text" id="card-name" required>
+                </div>
+                <div class="bform-group">
+                    <label for="bank-number">Card Number</label>
+                    <input type="text" id="bank-number" required oninput="formatCardNumber(this)">
+                </div>
 
-    <div class="container">
-        <h1>Bank Payment</h1>
-        <br>
-        <form id="bank-payment-form">
-            <div class="form-group">
-                <label for="card-name">Cardhholder's Name</label>
-                <input type="text" id="card-name" required>
-            </div>
-            <div class="form-group">
-                <label for="bank-number">Card Number</label>
-                <input type="text" id="bank-number" required oninput="formatCardNumber(this)">
-            </div>
-            
-            <div class="form-group">
-                <label for="card-type">Card Type</label>
-                <select id="card-type" required>
-                    <option value="" disabled selected>Select Card Type</option>
-                    <option value="visa">Visa</option>
-                    <option value="mastercard">Mastercard</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" required>
-            </div>
-            <div class="form-group">
-                <label for="bank-number">Expiration Date</label>
-                <select id="expiration-month" required>
-                    <option value="" disabled selected>Select Month</option>
-                    <option value="01">January</option>
-                    <option value="02">February</option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <select id="expiration-year" required>
-                    <option value="" disabled selected>Select Year</option>
-                    <!-- Assuming the current year is 2023 and future years end at 2048 -->
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-                    <option value="2031">2031</option>
-                    <option value="2032">2032</option>
-                    <option value="2033">2033</option>
-                    <option value="2034">2034</option>
-                    <option value="2035">2035</option>
-                    <option value="2036">2036</option>
-                    <option value="2037">2037</option>
-                    <option value="2038">2038</option>
-                    <option value="2039">2039</option>
-                    <option value="2040">2040</option>
-                    <option value="2041">2041</option>
-                    <option value="2042">2042</option>
-                    <option value="2043">2043</option>
-                    <option value="2044">2044</option>
-                    <option value="2045">2045</option>
-                    <option value="2046">2046</option>
-                    <option value="2047">2047</option>
-                    <option value="2048">2048</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="amount">Amount to Pay (PHP)</label>
-                <input type="text" id="amount" required>
-            </div>
+                <div class="bform-group">
+                    <label for="card-type">Card Type</label>
+                    <select id="card-type" required>
+                        <option value="" disabled selected>Select Card Type</option>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="bform-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" required>
+                </div>
+                <div class="bform-group">
+                    <label for="bank-number">Expiration Date</label>
+                    <select id="expiration-month" required>
+                        <option value="" disabled selected>Select Month</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="expiration-year" required>
+                        <option value="" disabled selected>Select Year</option>
+                        <!-- Assuming the current year is 2023 and future years end at 2048 -->
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                        <option value="2035">2035</option>
+                        <option value="2036">2036</option>
+                        <option value="2037">2037</option>
+                        <option value="2038">2038</option>
+                        <option value="2039">2039</option>
+                        <option value="2040">2040</option>
+                        <option value="2041">2041</option>
+                        <option value="2042">2042</option>
+                        <option value="2043">2043</option>
+                        <option value="2044">2044</option>
+                        <option value="2045">2045</option>
+                        <option value="2046">2046</option>
+                        <option value="2047">2047</option>
+                        <option value="2048">2048</option>
+                    </select>
+                </div>
+                <div class="bform-group">
+                    <label for="amount">Amount to Pay (PHP)</label>
+                    <input type="text" id="amount" required>
+                </div>
 
-            <div class="form-group">
-                <input type="checkbox" id="terms-conditions" disabled>
-                <label for="terms-conditions">
-                    I agree to the
-                    <a href="terms and condition.html" target="_blank" onclick="enableCheckbox()">Terms and Conditions</a>
-                </label>
-            </div>
-            <button id="submit-payment">Make Payment</button>
-        </form>
+                <div class="form-group">
+                    <input type="checkbox" id="terms-conditions" disabled>
+                    <label for="terms-conditions">
+                        I agree to the
+                        <a href="terms and condition.html" target="_blank" onclick="enableCheckbox()">Terms and
+                            Conditions</a>
+                    </label>
+                </div>
+                <button id="submit-payment">Make Payment</button>
+            </form>
+        </div>
     </div>
     <script>
         function enableCheckbox() {
             document.getElementById('terms-conditions').disabled = false;
         }
-    
+
         function formatCardNumber(input) {
             var value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
             var formattedValue = '';
@@ -232,21 +130,21 @@
             }
             input.value = formattedValue;
         }
-    
+
         document.addEventListener('DOMContentLoaded', function () {
             var urlParams = new URLSearchParams(window.location.search);
             var totalPrice = urlParams.get('totalCost');
-    
+
             var paymentAmountField = document.getElementById('amount');
             if (paymentAmountField) {
                 paymentAmountField.value = totalPrice;
             }
-    
+
             var bankPaymentForm = document.getElementById('bank-payment-form');
-    
+
             bankPaymentForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-    
+
                 var cardNameField = document.getElementById('card-name');
                 var cardName = cardNameField.value;
                 var cardNumberField = document.getElementById('bank-number');
@@ -255,53 +153,53 @@
                 var expirationMonth = document.getElementById('expiration-month').value;
                 var expirationYear = document.getElementById('expiration-year').value;
                 var amount = document.getElementById('amount').value;
-    
+
                 // Validate cardholder's name
                 if (!/^[a-zA-Z\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF ]+$/.test(cardName)) {
                     alert('Please enter a valid name.');
                     return;
                 }
-    
+
                 // Remove all non-numeric characters from the card number
                 var cardNumber = cardNumberField.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-    
+
                 // Add space after every four characters
                 var formattedCardNumber = cardNumber.replace(/(\d{4})/g, '$1 ').trim();
-    
+
                 // Update the value in the input field
                 cardNumberField.value = formattedCardNumber;
-    
+
                 var cardNumberWithoutSpaces = cardNumber.replace(/\s+/g, '');
-    
+
                 if (cardNumberWithoutSpaces.length !== 16) {
                     alert('Please enter a valid 16-digit card number.');
                     return;
                 }
-    
+
                 // Validate CVV
                 var cvv = cvvField.value;
                 if (cvv.length < 3 || cvv.length > 4 || isNaN(cvv)) {
                     alert('Please enter a valid CVV with 3 or 4 digits.');
                     return;
                 }
-    
+
                 var confirmation = confirm('Payment successful. Check your email for the receipt.');
                 if (confirmation) {
                     // Redirect to a success page or perform other actions.
                     // You can use window.location.href = 'success.html'; to redirect to a success page.
                 }
             });
-    
+
             var cardNumberInput = document.getElementById('bank-number');
             cardNumberInput.addEventListener('input', function () {
                 formatCardNumber(cardNumberInput);
             });
-    
+
             var cvvInput = document.getElementById('cvv');
             cvvInput.addEventListener('input', function () {
                 // Allow only numbers
                 cvvInput.value = cvvInput.value.replace(/\D/g, '');
-    
+
                 if (cvvInput.value.length > 4) {
                     cvvInput.value = cvvInput.value.slice(0, 4);
                 }
@@ -309,18 +207,19 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-    const submitPaymentButton = document.getElementById('submit-payment');
+            const submitPaymentButton = document.getElementById('submit-payment');
 
-    submitPaymentButton.addEventListener('click', function () {
-        window.location.href = 'index.html'; // Redirect to payment.html
-    });
-});
+            submitPaymentButton.addEventListener('click', function () {
+                window.location.href = 'index.html'; // Redirect to payment.html
+            });
+        });
     </script>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </body>
+
 </html>

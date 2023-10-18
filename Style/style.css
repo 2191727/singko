@@ -348,8 +348,6 @@ header {
 
 /* -----------------------------------------------------  BOOKING  ---------------------------------------------------*/
 .container {
-    background: url('images/mf1.jpeg') no-repeat center center fixed;
-    background-size: cover;
     background-color: rgba(48, 13, 47, 0.7);
     padding: 20px;
     border-radius: 10px;
@@ -507,7 +505,7 @@ header {
     cursor: pointer;
 }
 
-/* ----------------------------------- TICKET PRICES -----------------------------------*/
+/* -------------------------------------------------- TICKET PRICES ------------------------------------------------*/
 #totalCost {
     color: white;
     font-size: 24px;
@@ -739,7 +737,7 @@ header {
     transition: all ease 0.3s;
 }
 
-/* ----------------------------------- CHECK ORDER SUMMARY -----------------------------------*/
+/* --------------------------------------------------- CHECK ORDER SUMMARY -----------------------------------------------*/
 #summary {
     display: none;
     border: 1px solid #e1e1e1;
@@ -871,7 +869,7 @@ header {
     /* Adjust the margin to position the button */
 }
 
-/* ----------------------------------- PROCEED TO PAYMENT -----------------------------------*/
+/* ------------------------------------------------------ PROCEED TO PAYMENT ---------------------------------------------------*/
 #tick-pr .proceed :hover {
     background-color: rgb(120, 79, 170);
     transition: all ease 0.3s;
@@ -1063,7 +1061,7 @@ header {
 }
 
 
-/* ----------------------------------- GCASH CHECKOUT -----------------------------------*/
+/* ----------------------------------------------------- GCASH CHECKOUT ---------------------------------------------*/
 .gcash-container {
     background-color: rgba(48, 13, 47, 0.7);
     /* Darker transparency */
@@ -1366,7 +1364,70 @@ header {
     margin-left: 0;
 }
 
-/* ----------------------------------- BANK CHECKOUT -----------------------------------*/
+/* ---------------------------------------------------------- BANK CHECKOUT --------------------------------------------*/
+.bank-container {
+    background-color: rgba(48, 13, 47, 0.7);
+    /* Darker transparency */
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    /* Increase the width */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    text-align: center;
+    /* Center the content inside the container */
+    margin-top: 30px;
+}
+
+.bank-container h1 {
+    text-align: center;
+    color: aliceblue;
+    font-family: orb-blk;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.bank-container h4 {
+    text-align: left;
+    color: aliceblue;
+}
+
+.bank-container form {
+    text-align: left;
+    color: white;
+}
+
+.bform-group {
+    margin-bottom: 20px;
+}
+
+.bform-group label {
+    display: block;
+    color: white;
+    /* Label text color */
+    font-family: Orbitron, sans-serif;
+    /* Font family Orbitron */
+}
+
+.bform-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+    /* Input text color */
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background: #060606;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .bcheckout .order-summary {
     position: absolute;
     top: 172px;
